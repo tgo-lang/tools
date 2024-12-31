@@ -27,7 +27,7 @@ import (
 	"github.com/tgo-lang/tools/go/packages"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // TestExampleSeparateAnalysis demonstrates the principle of separate

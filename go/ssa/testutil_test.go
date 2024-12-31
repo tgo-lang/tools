@@ -21,7 +21,7 @@ import (
 	"github.com/tgo-lang/tools/go/ssa/ssautil"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // goMod returns a go.mod file containing a name and a go directive

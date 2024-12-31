@@ -10,7 +10,7 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 func TestFS(t *testing.T) {

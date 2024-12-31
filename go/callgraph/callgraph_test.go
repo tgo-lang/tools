@@ -15,7 +15,7 @@ import (
 	"github.com/tgo-lang/tools/go/ssa"
 	"github.com/tgo-lang/tools/go/ssa/ssautil"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // Benchmarks comparing different callgraph algorithms implemented in

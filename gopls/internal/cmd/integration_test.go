@@ -45,7 +45,7 @@ import (
 	"github.com/tgo-lang/tools/gopls/internal/version"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/tool"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // TestVersion tests the 'version' subcommand (info.go).

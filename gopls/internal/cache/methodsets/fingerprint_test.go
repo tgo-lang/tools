@@ -18,7 +18,7 @@ import (
 	"github.com/tgo-lang/tools/go/types/typeutil"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // Test_fingerprint runs the fingerprint encoder, decoder, and printer

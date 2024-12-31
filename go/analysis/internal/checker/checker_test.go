@@ -21,7 +21,7 @@ import (
 	"github.com/tgo-lang/tools/go/ast/inspector"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 func TestApplyFixes(t *testing.T) {

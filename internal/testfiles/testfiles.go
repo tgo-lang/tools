@@ -16,7 +16,7 @@ import (
 
 	"github.com/tgo-lang/tools/go/packages"
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // CopyToTmp copies the files and directories in src to a new temporary testing

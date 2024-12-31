@@ -47,7 +47,7 @@ import (
 	"github.com/tgo-lang/tools/internal/jsonrpc2"
 	"github.com/tgo-lang/tools/internal/jsonrpc2/servertest"
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 var update = flag.Bool("update", false, "if set, update test data during marker tests")

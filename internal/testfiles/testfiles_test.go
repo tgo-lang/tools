@@ -14,8 +14,8 @@ import (
 	"github.com/tgo-lang/tools/go/analysis/analysistest"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/internal/txtar"
 	"github.com/tgo-lang/tools/internal/versions"
-	"github.com/tgo-lang/tools/txtar"
 )
 
 func TestTestDir(t *testing.T) {

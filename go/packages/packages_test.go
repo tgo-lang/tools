@@ -33,7 +33,7 @@ import (
 	"github.com/tgo-lang/tools/internal/packagestest"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // testCtx is canceled when the test binary is about to time out.

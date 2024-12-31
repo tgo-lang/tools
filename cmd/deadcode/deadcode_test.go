@@ -16,7 +16,7 @@ import (
 	"testing"
 
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // Test runs the deadcode command on each scenario

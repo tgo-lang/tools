@@ -29,7 +29,7 @@ import (
 	"github.com/tgo-lang/tools/go/packages"
 	"github.com/tgo-lang/tools/internal/diff"
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // WriteFiles is a helper function that creates a temporary directory

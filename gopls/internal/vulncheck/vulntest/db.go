@@ -18,7 +18,7 @@ import (
 
 	"github.com/tgo-lang/tools/gopls/internal/protocol"
 	"github.com/tgo-lang/tools/gopls/internal/vulncheck/osv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // NewDatabase returns a read-only DB containing the provided

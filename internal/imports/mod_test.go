@@ -23,7 +23,7 @@ import (
 	"github.com/tgo-lang/tools/internal/gopathwalk"
 	"github.com/tgo-lang/tools/internal/proxydir"
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 	"golang.org/x/mod/module"
 )
 

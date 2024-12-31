@@ -30,7 +30,7 @@ import (
 	"github.com/tgo-lang/tools/internal/expect"
 	"github.com/tgo-lang/tools/internal/refactor/inline"
 	"github.com/tgo-lang/tools/internal/testenv"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 // TestData executes test scenarios specified by files in testdata/*.txtar.

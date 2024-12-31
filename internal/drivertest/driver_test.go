@@ -19,7 +19,7 @@ import (
 	"github.com/tgo-lang/tools/internal/packagesinternal"
 	"github.com/tgo-lang/tools/internal/testenv"
 	"github.com/tgo-lang/tools/internal/testfiles"
-	"github.com/tgo-lang/tools/txtar"
+	"github.com/tgo-lang/tools/internal/txtar"
 )
 
 func TestMain(m *testing.M) {
