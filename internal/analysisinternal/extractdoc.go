@@ -6,9 +6,10 @@ package analysisinternal
 
 import (
 	"fmt"
-	"go/parser"
-	"go/token"
 	"strings"
+
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
 )
 
 // MustExtractDoc is like [ExtractDoc] but it panics on error.

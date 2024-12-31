@@ -9,11 +9,12 @@ package gccgoimporter
 
 import (
 	"bufio"
-	"go/types"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // Information about a specific installation of gccgo.

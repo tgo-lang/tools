@@ -7,8 +7,9 @@
 package gccgoimporter
 
 import (
-	"go/types"
 	"io"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // Parse reads and parses gccgo export data from in and constructs a

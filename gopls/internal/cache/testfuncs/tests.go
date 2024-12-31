@@ -5,16 +5,17 @@
 package testfuncs
 
 import (
-	"go/ast"
-	"go/constant"
-	"go/types"
 	"regexp"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/frob"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/frob"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
 )
 
 // An Index records the test set of a package.

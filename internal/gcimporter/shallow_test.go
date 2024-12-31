@@ -6,18 +6,19 @@ package gcimporter_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"os"
 	"strings"
 	"testing"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/gcimporter"
+	"github.com/tgo-lang/tools/internal/testenv"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/gcimporter"
-	"golang.org/x/tools/internal/testenv"
 )
 
 // TestShallowStd type-checks the standard library using shallow export data.

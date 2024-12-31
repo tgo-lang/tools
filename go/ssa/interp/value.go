@@ -37,15 +37,16 @@ package interp
 import (
 	"bytes"
 	"fmt"
-	"go/types"
 	"io"
 	"reflect"
 	"strings"
 	"sync"
 	"unsafe"
 
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/types/typeutil"
 )
 
 type value interface{}

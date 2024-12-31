@@ -13,16 +13,17 @@ package gcexportdata_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/tools/go/gcexportdata"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/gcexportdata"
 )
 
 // ExampleRead uses gcexportdata.Read to load type information for the

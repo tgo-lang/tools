@@ -25,14 +25,15 @@ package pkgfact
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"reflect"
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
 )
 
 var Analyzer = &analysis.Analyzer{

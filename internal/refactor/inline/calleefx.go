@@ -7,9 +7,9 @@ package inline
 // This file defines the analysis of callee effects.
 
 import (
-	"go/ast"
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 const (

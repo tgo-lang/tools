@@ -15,8 +15,6 @@ import (
 	"cmp"
 	"errors"
 	"fmt"
-	"go/format"
-	"go/types"
 	"io/fs"
 	"log"
 	"os"
@@ -26,7 +24,10 @@ import (
 	"slices"
 	"strings"
 
-	"golang.org/x/tools/go/packages"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
 )
 
 func main() {

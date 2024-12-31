@@ -14,7 +14,7 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 // ErrNoEmbed is returned by EmbedDefinition when no embed

@@ -6,14 +6,15 @@ package golang
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
 )
 
 // invertIfCondition is a singleFileFixFunc that inverts an if/else statement

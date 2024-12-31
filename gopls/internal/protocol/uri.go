@@ -16,7 +16,7 @@ import (
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/gopls/internal/util/pathutil"
+	"github.com/tgo-lang/tools/gopls/internal/util/pathutil"
 )
 
 // A DocumentURI is the URI of a client editor document.

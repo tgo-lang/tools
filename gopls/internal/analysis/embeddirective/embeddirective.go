@@ -6,13 +6,14 @@ package embeddirective
 
 import (
 	_ "embed"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/internal/analysisinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
 )
 
 //go:embed doc.go

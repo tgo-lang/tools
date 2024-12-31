@@ -9,21 +9,22 @@ package golang
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"html"
 	"slices"
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/util/moremaps"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/util/moremaps"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // FreeSymbolsHTML returns an HTML document containing the report of

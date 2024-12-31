@@ -58,8 +58,9 @@ package expect
 import (
 	"bytes"
 	"fmt"
-	"go/token"
 	"regexp"
+
+	"github.com/tgo-lang/lang/token"
 )
 
 // Note is a parsed note from an expect comment.

@@ -7,8 +7,9 @@
 package typeutil
 
 import (
-	"go/types"
 	"sync"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // A MethodSetCache records the method set of each type T for which

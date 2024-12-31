@@ -7,12 +7,13 @@
 package inspector_test
 
 import (
-	"go/ast"
 	"iter"
 	"slices"
 	"testing"
 
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 // TestPreorderSeq checks PreorderSeq against Preorder.

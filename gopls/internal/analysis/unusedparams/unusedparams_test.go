@@ -7,8 +7,8 @@ package unusedparams_test
 import (
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/gopls/internal/analysis/unusedparams"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/unusedparams"
 )
 
 func Test(t *testing.T) {

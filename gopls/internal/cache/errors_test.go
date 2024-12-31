@@ -10,8 +10,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 func TestParseErrorMessage(t *testing.T) {

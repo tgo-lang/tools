@@ -8,10 +8,11 @@ package ssa
 
 import (
 	"fmt"
-	"go/types"
 
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // MethodValue returns the Function implementing method sel, building

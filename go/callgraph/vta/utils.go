@@ -5,10 +5,10 @@
 package vta
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 func canAlias(n1, n2 node) bool {

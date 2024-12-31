@@ -16,9 +16,10 @@ package apidiff
 
 import (
 	"fmt"
-	"go/constant"
-	"go/token"
-	"go/types"
+
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // Changes reports on the differences between the APIs of the old and new packages.

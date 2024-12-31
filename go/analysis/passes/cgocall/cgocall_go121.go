@@ -6,7 +6,7 @@
 
 package cgocall
 
-import "go/types"
+import "github.com/tgo-lang/lang/types"
 
 func setGoVersion(tc *types.Config, pkg *types.Package) {
 	tc.GoVersion = pkg.GoVersion()

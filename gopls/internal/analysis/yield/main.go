@@ -9,8 +9,8 @@
 package main
 
 import (
-	"golang.org/x/tools/go/analysis/singlechecker"
-	"golang.org/x/tools/gopls/internal/analysis/yield"
+	"github.com/tgo-lang/tools/go/analysis/singlechecker"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/yield"
 )
 
 func main() { singlechecker.Main(yield.Analyzer) }

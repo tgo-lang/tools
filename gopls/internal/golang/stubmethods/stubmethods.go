@@ -10,15 +10,16 @@ package stubmethods
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/gopls/internal/util/typesutil"
+	"github.com/tgo-lang/tools/internal/typesinternal"
+
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/gopls/internal/util/typesutil"
 )
 
 // TODO(adonovan): eliminate the confusing Fset parameter; only the

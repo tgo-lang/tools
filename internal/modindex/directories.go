@@ -15,8 +15,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/tgo-lang/tools/internal/gopathwalk"
 	"golang.org/x/mod/semver"
-	"golang.org/x/tools/internal/gopathwalk"
 )
 
 type directory struct {

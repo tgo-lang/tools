@@ -6,13 +6,14 @@ package astutil_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/util/astutil"
 )
 
 func TestFlatFields(t *testing.T) {

@@ -7,8 +7,8 @@ package infertypeargs_test
 import (
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/gopls/internal/analysis/infertypeargs"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/infertypeargs"
 )
 
 func Test(t *testing.T) {

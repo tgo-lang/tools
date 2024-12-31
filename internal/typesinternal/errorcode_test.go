@@ -6,16 +6,17 @@ package typesinternal_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/constant"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"path/filepath"
 	"runtime"
 	"sort"
 	"strings"
 	"testing"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 func TestErrorCodes(t *testing.T) {

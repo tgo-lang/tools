@@ -7,14 +7,15 @@ package stubmethods
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/gopls/internal/util/typesutil"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/util/typesutil"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 var anyType = types.Universe.Lookup("any").Type()

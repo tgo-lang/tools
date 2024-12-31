@@ -67,7 +67,6 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"go/token"
 	"io"
 	"log"
 	"os"
@@ -76,9 +75,11 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/expect"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/expect"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 var (

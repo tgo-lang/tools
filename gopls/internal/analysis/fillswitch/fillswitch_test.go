@@ -5,12 +5,13 @@
 package fillswitch_test
 
 import (
-	"go/token"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/gopls/internal/analysis/fillswitch"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/fillswitch"
 )
 
 // analyzer allows us to test the fillswitch code action using the analysistest

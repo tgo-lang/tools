@@ -7,10 +7,11 @@ package astutil // import "golang.org/x/tools/go/ast/astutil"
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
 	"strconv"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 // AddImport adds the import path to the file f, if absent.

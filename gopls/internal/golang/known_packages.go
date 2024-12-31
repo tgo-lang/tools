@@ -6,18 +6,19 @@ package golang
 
 import (
 	"context"
-	"go/parser"
-	"go/token"
 	"sort"
 	"strings"
 	"sync"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/imports"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/imports"
 )
 
 // KnownPackagePaths returns a new list of package paths of all known

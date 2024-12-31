@@ -19,15 +19,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/debug"
-	"golang.org/x/tools/gopls/internal/label"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/server"
-	"golang.org/x/tools/gopls/internal/settings"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/jsonrpc2"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/debug"
+	"github.com/tgo-lang/tools/gopls/internal/label"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/server"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/jsonrpc2"
 )
 
 // Unique identifiers for client/server.

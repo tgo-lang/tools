@@ -8,11 +8,12 @@ import (
 	"bytes"
 	"crypto/md5"
 	"encoding/binary"
-	"go/constant"
 	"io"
 	"math/big"
 	"runtime"
 	"strings"
+
+	"github.com/tgo-lang/lang/constant"
 )
 
 // A PkgEncoder provides methods for encoding a package's Unified IR

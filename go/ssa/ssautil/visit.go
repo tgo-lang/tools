@@ -5,10 +5,10 @@
 package ssautil // import "golang.org/x/tools/go/ssa/ssautil"
 
 import (
-	"go/ast"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa"
 
 	_ "unsafe" // for linkname hack
 )
@@ -153,5 +153,5 @@ func MainPackages(pkgs []*ssa.Package) []*ssa.Package {
 // AllFunctions doc comment, or nil if the package is not from syntax.
 // But perhaps overloading nil vs empty slice is too subtle.
 //
-//go:linkname isSyntactic golang.org/x/tools/go/ssa.isSyntactic
+//go:linkname isSyntactic github.com/tgo-lang/tools/go/ssa.isSyntactic
 func isSyntactic(pkg *ssa.Package) bool

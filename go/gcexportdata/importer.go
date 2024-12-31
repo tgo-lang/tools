@@ -6,9 +6,10 @@ package gcexportdata
 
 import (
 	"fmt"
-	"go/token"
-	"go/types"
 	"os"
+
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // NewImporter returns a new instance of the types.Importer interface

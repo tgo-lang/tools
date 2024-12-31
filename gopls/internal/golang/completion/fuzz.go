@@ -6,11 +6,12 @@ package completion
 
 import (
 	"fmt"
-	"go/ast"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 // golang/go#51089

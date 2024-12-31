@@ -36,9 +36,10 @@ package callgraph // import "golang.org/x/tools/go/callgraph"
 
 import (
 	"fmt"
-	"go/token"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 // A Graph represents a call graph.

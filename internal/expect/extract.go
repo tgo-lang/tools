@@ -6,14 +6,15 @@ package expect
 
 import (
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
 	"text/scanner"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
 
 	"golang.org/x/mod/modfile"
 )

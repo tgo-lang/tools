@@ -6,21 +6,22 @@ package golang
 
 import (
 	"context"
-	"go/ast"
-	"go/printer"
-	"go/token"
-	"go/types"
 	"regexp"
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/tokeninternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/tokeninternal"
 )
 
 // IsGenerated gets and reads the file denoted by uri and reports

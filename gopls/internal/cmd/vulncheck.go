@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"os"
 
-	"golang.org/x/tools/gopls/internal/vulncheck/scan"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck/scan"
 )
 
 // vulncheck implements the vulncheck command.

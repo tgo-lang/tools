@@ -25,12 +25,13 @@ package objectpath
 
 import (
 	"fmt"
-	"go/types"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/internal/aliases"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // TODO(adonovan): think about generic aliases.

@@ -8,9 +8,9 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
 )
 
 var (

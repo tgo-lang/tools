@@ -10,12 +10,12 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
 	"golang.org/x/mod/modfile"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/settings"
 )
 
 // CodeLensSources returns the sources of code lenses for go.mod files.

@@ -13,16 +13,17 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/types"
 	"log"
 	"os"
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/drivertest"
-	"golang.org/x/tools/internal/tool"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/drivertest"
+	"github.com/tgo-lang/tools/internal/tool"
 )
 
 func main() {

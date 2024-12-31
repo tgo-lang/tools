@@ -11,9 +11,9 @@ package ssa
 // the originating syntax, as specified.
 
 import (
-	"go/ast"
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // EnclosingFunction returns the function that contains the syntax

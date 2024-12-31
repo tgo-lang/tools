@@ -12,9 +12,9 @@ import (
 	"fmt"
 	"log"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/checker"
-	"golang.org/x/tools/go/packages"
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/checker"
+	"github.com/tgo-lang/tools/go/packages"
 )
 
 func Example() {

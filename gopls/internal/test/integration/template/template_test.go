@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	. "golang.org/x/tools/gopls/internal/test/integration"
-	"golang.org/x/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
 )
 
 func TestMain(m *testing.M) {

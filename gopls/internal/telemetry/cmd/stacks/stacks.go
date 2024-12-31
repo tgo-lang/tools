@@ -64,9 +64,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"hash/fnv"
 	"io"
 	"log"
@@ -82,10 +79,14 @@ import (
 	"time"
 	"unicode"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/util/browser"
+	"github.com/tgo-lang/tools/gopls/internal/util/moremaps"
 	"golang.org/x/sys/unix"
 	"golang.org/x/telemetry"
-	"golang.org/x/tools/gopls/internal/util/browser"
-	"golang.org/x/tools/gopls/internal/util/moremaps"
 )
 
 // flags

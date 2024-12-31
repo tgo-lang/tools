@@ -9,15 +9,16 @@ package fieldalignment
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/token"
-	"go/types"
 	"sort"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 const Doc = `find structs that would use less memory if their fields were sorted

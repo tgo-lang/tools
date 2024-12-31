@@ -10,11 +10,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/ast"
-	constantpkg "go/constant"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -26,13 +21,19 @@ import (
 	"testing/fstest"
 	"time"
 
+	"github.com/tgo-lang/lang/ast"
+	constantpkg "github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
 	"github.com/google/go-cmp/cmp"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/packagesinternal"
-	"golang.org/x/tools/internal/packagestest"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/packagesinternal"
+	"github.com/tgo-lang/tools/internal/packagestest"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // testCtx is canceled when the test binary is about to time out.

@@ -7,11 +7,11 @@ package golang
 import (
 	"context"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/progress"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/moremaps"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/progress"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/moremaps"
 )
 
 // DiagnoseFile returns pull-based diagnostics for the given file.

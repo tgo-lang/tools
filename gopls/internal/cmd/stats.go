@@ -9,7 +9,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/token"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -18,13 +17,15 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/filecache"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/settings"
-	bugpkg "golang.org/x/tools/gopls/internal/util/bug"
-	versionpkg "golang.org/x/tools/gopls/internal/version"
-	"golang.org/x/tools/internal/event"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/filecache"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
+	bugpkg "github.com/tgo-lang/tools/gopls/internal/util/bug"
+	versionpkg "github.com/tgo-lang/tools/gopls/internal/version"
+	"github.com/tgo-lang/tools/internal/event"
 )
 
 type stats struct {

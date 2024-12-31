@@ -39,12 +39,13 @@ package satisfy // import "golang.org/x/tools/refactor/satisfy"
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // A Constraint records the fact that the RHS type does and must

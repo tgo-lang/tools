@@ -11,7 +11,7 @@ import (
 	"sort"
 	"testing"
 
-	"golang.org/x/tools/internal/packagestest"
+	"github.com/tgo-lang/tools/internal/packagestest"
 )
 
 var testdata = []packagestest.Module{{

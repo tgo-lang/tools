@@ -44,17 +44,18 @@ package methodsets
 // single 64-bit mask is quite effective. See CL 452060 for details.
 
 import (
-	"go/token"
-	"go/types"
 	"hash/crc32"
 	"slices"
 	"sync/atomic"
 
-	"golang.org/x/tools/go/types/objectpath"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/gopls/internal/util/frob"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/types/objectpath"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/gopls/internal/util/frob"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // An Index records the non-empty method sets of all package-level

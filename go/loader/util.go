@@ -5,16 +5,17 @@
 package loader
 
 import (
-	"go/ast"
 	"go/build"
-	"go/parser"
-	"go/token"
 	"io"
 	"os"
 	"strconv"
 	"sync"
 
-	"golang.org/x/tools/go/buildutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/buildutil"
 )
 
 // We use a counting semaphore to limit

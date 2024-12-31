@@ -6,8 +6,9 @@ package ssa
 
 import (
 	"fmt"
-	"go/types"
 	"sync"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // A generic records information about a generic origin function,

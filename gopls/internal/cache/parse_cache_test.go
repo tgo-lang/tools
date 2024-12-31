@@ -7,14 +7,15 @@ package cache
 import (
 	"context"
 	"fmt"
-	"go/token"
 	"math/bits"
 	"testing"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 func skipIfNoParseCache(t *testing.T) {

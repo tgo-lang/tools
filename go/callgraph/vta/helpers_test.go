@@ -7,19 +7,20 @@ package vta
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/callgraph"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/internal/testenv"
+
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 // want extracts the contents of the first comment

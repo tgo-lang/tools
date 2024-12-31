@@ -10,7 +10,7 @@ import (
 	"sync"
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 type fakeClient struct {

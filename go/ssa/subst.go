@@ -5,10 +5,10 @@
 package ssa
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/aliases"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/aliases"
 )
 
 // subster defines a type substitution operation of a set of type parameters

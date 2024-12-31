@@ -7,7 +7,6 @@ package checker_test
 import (
 	"flag"
 	"fmt"
-	"go/token"
 	"log"
 	"os"
 	"os/exec"
@@ -17,10 +16,12 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/multichecker"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/analysis/multichecker"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // These are the analyzers available to the multichecker.

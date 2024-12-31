@@ -6,17 +6,18 @@ package analyzer
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"slices"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/diff"
-	"golang.org/x/tools/internal/refactor/inline"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/diff"
+	"github.com/tgo-lang/tools/internal/refactor/inline"
 )
 
 const Doc = `inline calls to functions with "//go:fix inline" doc comment`

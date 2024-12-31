@@ -6,9 +6,10 @@ package astutil
 
 import (
 	"fmt"
-	"go/ast"
 	"reflect"
 	"sort"
+
+	"github.com/tgo-lang/lang/ast"
 )
 
 // An ApplyFunc is invoked by Apply for each node n, even if n is nil,

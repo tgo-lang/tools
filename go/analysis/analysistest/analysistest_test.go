@@ -6,19 +6,20 @@ package analysistest_test
 
 import (
 	"fmt"
-	"go/token"
 	"log"
 	"os"
 	"reflect"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/passes/findcall"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/analysis/passes/findcall"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 func init() {

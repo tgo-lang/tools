@@ -7,16 +7,17 @@ package interp
 import (
 	"bytes"
 	"fmt"
-	"go/constant"
-	"go/token"
-	"go/types"
 	"os"
 	"reflect"
 	"strings"
 	"unsafe"
 
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // If the target program panics, the interpreter panics with this type.

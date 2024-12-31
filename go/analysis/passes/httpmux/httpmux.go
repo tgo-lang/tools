@@ -5,19 +5,20 @@
 package httpmux
 
 import (
-	"go/ast"
-	"go/constant"
-	"go/types"
 	"regexp"
 	"strings"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 	"golang.org/x/mod/semver"
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/typesinternal"
 )
 
 const Doc = `report using Go 1.22 enhanced ServeMux patterns in older Go versions

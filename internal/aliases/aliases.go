@@ -5,8 +5,8 @@
 package aliases
 
 import (
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // Package aliases defines backward compatible shims

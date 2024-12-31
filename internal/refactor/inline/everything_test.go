@@ -7,20 +7,21 @@ package inline_test
 import (
 	"flag"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/types"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/diff"
-	"golang.org/x/tools/internal/refactor/inline"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/diff"
+	"github.com/tgo-lang/tools/internal/refactor/inline"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 var packagesFlag = flag.String("packages", "", "set of packages for TestEverything")

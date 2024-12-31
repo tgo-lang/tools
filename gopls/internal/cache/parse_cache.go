@@ -9,19 +9,20 @@ import (
 	"container/heap"
 	"context"
 	"fmt"
-	"go/parser"
-	"go/token"
 	"math/bits"
 	"runtime"
 	"sync"
 	"time"
 
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/internal/memoize"
+	"github.com/tgo-lang/tools/internal/tokeninternal"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/internal/memoize"
-	"golang.org/x/tools/internal/tokeninternal"
 )
 
 // This file contains an implementation of an LRU parse cache, that offsets the

@@ -7,11 +7,12 @@
 package genericfeatures
 
 import (
-	"go/ast"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 // Features is a set of flags reporting which features of generic Go code a

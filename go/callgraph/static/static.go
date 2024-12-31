@@ -7,10 +7,10 @@
 package static
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/callgraph"
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 // CallGraph computes the static call graph of the specified program.

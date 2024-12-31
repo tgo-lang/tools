@@ -5,11 +5,12 @@
 package packagestest_test
 
 import (
-	"go/token"
 	"testing"
 
-	"golang.org/x/tools/internal/expect"
-	"golang.org/x/tools/internal/packagestest"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/internal/expect"
+	"github.com/tgo-lang/tools/internal/packagestest"
 )
 
 func TestExpect(t *testing.T) {

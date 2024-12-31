@@ -20,17 +20,17 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/cmd"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/test/integration"
-	"golang.org/x/tools/gopls/internal/test/integration/fake"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/fakenet"
-	"golang.org/x/tools/internal/jsonrpc2"
-	"golang.org/x/tools/internal/jsonrpc2/servertest"
-	"golang.org/x/tools/internal/pprof"
-	"golang.org/x/tools/internal/tool"
+	"github.com/tgo-lang/tools/gopls/internal/cmd"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/test/integration"
+	"github.com/tgo-lang/tools/gopls/internal/test/integration/fake"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/fakenet"
+	"github.com/tgo-lang/tools/internal/jsonrpc2"
+	"github.com/tgo-lang/tools/internal/jsonrpc2/servertest"
+	"github.com/tgo-lang/tools/internal/pprof"
+	"github.com/tgo-lang/tools/internal/tool"
 )
 
 var (

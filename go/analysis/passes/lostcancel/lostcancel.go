@@ -7,15 +7,16 @@ package lostcancel
 import (
 	_ "embed"
 	"fmt"
-	"go/ast"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/ctrlflow"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/go/cfg"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/ctrlflow"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/go/cfg"
 )
 
 //go:embed doc.go

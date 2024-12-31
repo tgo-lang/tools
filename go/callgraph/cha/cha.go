@@ -25,10 +25,10 @@ package cha // import "golang.org/x/tools/go/callgraph/cha"
 // TODO(zpavlinovic): update CHA for how it handles generic function bodies.
 
 import (
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/callgraph/internal/chautil"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/go/callgraph"
+	"github.com/tgo-lang/tools/go/callgraph/internal/chautil"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
 )
 
 // CallGraph computes the call graph of the specified program using the

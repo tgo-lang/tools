@@ -7,8 +7,8 @@ package appends_test
 import (
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/passes/appends"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/analysis/passes/appends"
 )
 
 func Test(t *testing.T) {

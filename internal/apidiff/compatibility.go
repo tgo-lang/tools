@@ -6,10 +6,11 @@ package apidiff
 
 import (
 	"fmt"
-	"go/types"
 	"reflect"
 
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 func (d *differ) checkCompatible(otn *types.TypeName, old, new types.Type) {

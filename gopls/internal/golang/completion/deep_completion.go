@@ -6,9 +6,10 @@ package completion
 
 import (
 	"context"
-	"go/types"
 	"strings"
 	"time"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // MaxDeepCompletions limits deep completion results because in most cases

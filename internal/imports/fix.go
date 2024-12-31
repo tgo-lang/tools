@@ -9,11 +9,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"io/fs"
 	"io/ioutil"
 	"os"
@@ -27,11 +23,16 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/gocommand"
-	"golang.org/x/tools/internal/gopathwalk"
-	"golang.org/x/tools/internal/stdlib"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/gocommand"
+	"github.com/tgo-lang/tools/internal/gopathwalk"
+	"github.com/tgo-lang/tools/internal/stdlib"
 )
 
 // importToGroup is a list of functions which map from an import path to

@@ -7,17 +7,18 @@ package golang
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/token"
-	"go/types"
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/util/typesutil"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/util/typesutil"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // The prefix for this error message changed in Go 1.20.

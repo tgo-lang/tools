@@ -7,23 +7,24 @@ package completion
 import (
 	"context"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"log"
 	"reflect"
 	"strings"
 	"sync"
 	"text/template"
 
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/golang"
-	"golang.org/x/tools/gopls/internal/golang/completion/snippet"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/imports"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/golang"
+	"github.com/tgo-lang/tools/gopls/internal/golang/completion/snippet"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/imports"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // Postfix snippets are artificial methods that allow the user to

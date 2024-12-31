@@ -6,14 +6,15 @@ package ssa_test
 
 import (
 	"fmt"
-	"go/types"
 	"reflect"
 	"sort"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
 )
 
 // TestNeedsInstance ensures that new method instances can be created via MethodValue.

@@ -6,15 +6,16 @@ package vta
 
 import (
 	"fmt"
-	"go/types"
 	"reflect"
 	"sort"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/callgraph/cha"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/callgraph/cha"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
 )
 
 func TestNodeInterface(t *testing.T) {

@@ -10,8 +10,8 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/tgo-lang/tools/internal/gopathwalk"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/internal/gopathwalk"
 )
 
 // ProcessEnvSource implements the [Source] interface using the legacy

@@ -46,8 +46,6 @@ package interp // import "golang.org/x/tools/go/ssa/interp"
 
 import (
 	"fmt"
-	"go/token"
-	"go/types"
 	"log"
 	"os"
 	"reflect"
@@ -56,8 +54,11 @@ import (
 	"sync/atomic"
 	_ "unsafe"
 
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 type continuation int

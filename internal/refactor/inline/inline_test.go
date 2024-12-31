@@ -10,10 +10,6 @@ import (
 	"encoding/binary"
 	"encoding/gob"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -22,14 +18,19 @@ import (
 	"testing"
 	"unsafe"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/diff"
-	"golang.org/x/tools/internal/expect"
-	"golang.org/x/tools/internal/refactor/inline"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/diff"
+	"github.com/tgo-lang/tools/internal/expect"
+	"github.com/tgo-lang/tools/internal/refactor/inline"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // TestData executes test scenarios specified by files in testdata/*.txtar.

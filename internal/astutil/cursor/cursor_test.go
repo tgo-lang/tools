@@ -8,10 +8,7 @@ package cursor_test
 
 import (
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/parser"
-	"go/token"
 	"iter"
 	"log"
 	"path/filepath"
@@ -19,8 +16,12 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/internal/astutil/cursor"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/internal/astutil/cursor"
 )
 
 // net/http package

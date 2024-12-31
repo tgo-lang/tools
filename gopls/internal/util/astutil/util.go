@@ -5,11 +5,12 @@
 package astutil
 
 import (
-	"go/ast"
-	"go/token"
 	"reflect"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // UnpackRecv unpacks a receiver type expression, reporting whether it is a

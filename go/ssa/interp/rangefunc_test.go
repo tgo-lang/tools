@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestIssue69298(t *testing.T) {

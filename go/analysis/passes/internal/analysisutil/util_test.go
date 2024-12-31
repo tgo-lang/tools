@@ -5,13 +5,14 @@
 package analysisutil_test
 
 import (
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"testing"
 
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
 )
 
 func TestHasSideEffects(t *testing.T) {

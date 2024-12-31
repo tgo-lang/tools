@@ -5,9 +5,10 @@
 package analyzer
 
 import (
-	"go/ast"
-	"go/token"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 // -- plundered from the future (CL 605517, issue #68021) --

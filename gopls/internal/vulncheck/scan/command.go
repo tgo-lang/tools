@@ -14,11 +14,11 @@ import (
 	"sort"
 	"time"
 
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck/govulncheck"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck/osv"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/vulncheck"
-	"golang.org/x/tools/gopls/internal/vulncheck/govulncheck"
-	"golang.org/x/tools/gopls/internal/vulncheck/osv"
 	"golang.org/x/vuln/scan"
 )
 

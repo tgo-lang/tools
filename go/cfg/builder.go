@@ -8,8 +8,9 @@ package cfg
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 type builder struct {

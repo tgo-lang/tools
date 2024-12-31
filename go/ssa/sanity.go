@@ -10,11 +10,12 @@ package ssa
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/types"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 )
 
 type sanity struct {

@@ -12,8 +12,6 @@ package loader_test
 import (
 	"fmt"
 	"go/build"
-	"go/constant"
-	"go/types"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -23,9 +21,12 @@ import (
 	"sync"
 	"testing"
 
-	"golang.org/x/tools/go/buildutil"
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/buildutil"
+	"github.com/tgo-lang/tools/go/loader"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestMain(m *testing.M) {

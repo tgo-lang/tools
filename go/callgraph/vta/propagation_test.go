@@ -5,8 +5,6 @@
 package vta
 
 import (
-	"go/token"
-	"go/types"
 	"math"
 	"reflect"
 	"slices"
@@ -15,9 +13,12 @@ import (
 	"testing"
 	"unsafe"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/go/ssa"
+
+	"github.com/tgo-lang/tools/go/types/typeutil"
 )
 
 // val is a test data structure for creating ssa.Value

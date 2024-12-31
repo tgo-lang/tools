@@ -5,12 +5,13 @@
 package completion
 
 import (
-	"go/ast"
-	"go/constant"
-	"go/types"
 	"strconv"
 	"strings"
 	"unicode/utf8"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/types"
 )
 
 // printfArgKind returns the expected objKind when completing a

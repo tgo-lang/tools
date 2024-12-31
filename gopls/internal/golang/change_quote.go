@@ -5,16 +5,17 @@
 package golang
 
 import (
-	"go/ast"
-	"go/token"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/diff"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/diff"
 )
 
 // convertStringLiteral reports whether we can convert between raw and interpreted

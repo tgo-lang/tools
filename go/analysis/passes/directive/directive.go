@@ -6,15 +6,16 @@
 package directive
 
 import (
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"strings"
 	"unicode"
 	"unicode/utf8"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
 )
 
 const Doc = `check Go toolchain directives such as //go:debug

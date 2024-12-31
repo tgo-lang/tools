@@ -17,11 +17,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/gocommand"
+	"github.com/tgo-lang/tools/internal/gopathwalk"
+	"github.com/tgo-lang/tools/internal/stdlib"
 	"golang.org/x/mod/module"
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/gocommand"
-	"golang.org/x/tools/internal/gopathwalk"
-	"golang.org/x/tools/internal/stdlib"
 )
 
 // Notes(rfindley): ModuleResolver appears to be heavily optimized for scanning

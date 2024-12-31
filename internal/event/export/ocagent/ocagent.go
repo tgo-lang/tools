@@ -18,13 +18,13 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/event/core"
-	"golang.org/x/tools/internal/event/export"
-	"golang.org/x/tools/internal/event/export/metric"
-	"golang.org/x/tools/internal/event/export/ocagent/wire"
-	"golang.org/x/tools/internal/event/keys"
-	"golang.org/x/tools/internal/event/label"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/event/core"
+	"github.com/tgo-lang/tools/internal/event/export"
+	"github.com/tgo-lang/tools/internal/event/export/metric"
+	"github.com/tgo-lang/tools/internal/event/export/ocagent/wire"
+	"github.com/tgo-lang/tools/internal/event/keys"
+	"github.com/tgo-lang/tools/internal/event/label"
 )
 
 type Config struct {

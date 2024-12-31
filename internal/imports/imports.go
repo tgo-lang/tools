@@ -11,18 +11,19 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/parser"
-	"go/printer"
-	"go/token"
 	"io"
 	"regexp"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/internal/event"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/internal/event"
 )
 
 // Options is golang.org/x/tools/imports.Options with extra internal-only options.

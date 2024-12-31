@@ -10,7 +10,7 @@ package govulncheck
 import (
 	"time"
 
-	"golang.org/x/tools/gopls/internal/vulncheck/osv"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck/osv"
 )
 
 const (

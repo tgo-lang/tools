@@ -8,14 +8,15 @@ package analysisutil
 
 import (
 	"bytes"
-	"go/ast"
-	"go/printer"
-	"go/token"
-	"go/types"
 	"os"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/internal/analysisinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
 )
 
 // Format returns a string representation of the expression.

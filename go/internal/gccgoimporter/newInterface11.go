@@ -7,7 +7,7 @@
 
 package gccgoimporter
 
-import "go/types"
+import "github.com/tgo-lang/lang/types"
 
 func newInterface(methods []*types.Func, embeddeds []types.Type) *types.Interface {
 	return types.NewInterfaceType(methods, embeddeds)

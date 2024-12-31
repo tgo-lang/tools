@@ -7,15 +7,16 @@ package typerefs_test
 import (
 	"context"
 	"fmt"
-	"go/token"
 	"sort"
 	"testing"
 
+	"github.com/tgo-lang/lang/token"
+
 	"github.com/google/go-cmp/cmp"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/cache/typerefs"
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/cache/typerefs"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 // TestRefs checks that the analysis reports, for each exported member

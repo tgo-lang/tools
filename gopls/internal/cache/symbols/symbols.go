@@ -7,15 +7,16 @@
 package symbols
 
 import (
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/astutil"
-	"golang.org/x/tools/gopls/internal/util/frob"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/util/frob"
 )
 
 // Symbol holds a precomputed symbol value. This is a subset of the information

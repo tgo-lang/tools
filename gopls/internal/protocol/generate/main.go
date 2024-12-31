@@ -15,12 +15,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/format"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/tgo-lang/lang/format"
 )
 
 const vscodeRepo = "https://github.com/microsoft/vscode-languageserver-node"
@@ -98,7 +99,7 @@ func writeclient() {
 		`import (
 	"context"
 
-	"golang.org/x/tools/internal/jsonrpc2"
+	"github.com/tgo-lang/tools/internal/jsonrpc2"
 )
 `)
 	out.WriteString("type Client interface {\n")
@@ -127,7 +128,7 @@ func writeserver() {
 		`import (
 	"context"
 
-	"golang.org/x/tools/internal/jsonrpc2"
+	"github.com/tgo-lang/internal/jsonrpc2"
 )
 `)
 	out.WriteString("type Server interface {\n")

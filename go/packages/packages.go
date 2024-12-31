@@ -11,11 +11,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/scanner"
-	"go/token"
-	"go/types"
 	"log"
 	"os"
 	"path/filepath"
@@ -25,12 +20,18 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/scanner"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
 	"golang.org/x/sync/errgroup"
 
-	"golang.org/x/tools/go/gcexportdata"
-	"golang.org/x/tools/internal/gocommand"
-	"golang.org/x/tools/internal/packagesinternal"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/tools/go/gcexportdata"
+	"github.com/tgo-lang/tools/internal/gocommand"
+	"github.com/tgo-lang/tools/internal/packagesinternal"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // A LoadMode controls the amount of detail to return when loading.

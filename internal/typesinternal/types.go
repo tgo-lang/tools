@@ -7,12 +7,13 @@
 package typesinternal
 
 import (
-	"go/token"
-	"go/types"
 	"reflect"
 	"unsafe"
 
-	"golang.org/x/tools/internal/aliases"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/aliases"
 )
 
 func SetUsesCgo(conf *types.Config) bool {

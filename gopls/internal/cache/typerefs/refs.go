@@ -6,15 +6,16 @@ package typerefs
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/util/astutil"
-	"golang.org/x/tools/gopls/internal/util/frob"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/util/frob"
 )
 
 // Encode analyzes the Go syntax trees of a package, constructs a

@@ -8,7 +8,8 @@ package typeparams
 
 import (
 	"bytes"
-	"go/types"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // A termlist represents the type set represented by the union

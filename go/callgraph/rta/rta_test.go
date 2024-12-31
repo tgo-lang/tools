@@ -11,18 +11,19 @@ package rta_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/types"
 	"sort"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/callgraph/rta"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/callgraph"
+	"github.com/tgo-lang/tools/go/callgraph/rta"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // TestRTA runs RTA on each testdata/*.txtar file containing a single

@@ -5,9 +5,9 @@
 package ssa
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // Utilities for dealing with core types.

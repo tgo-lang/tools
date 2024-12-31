@@ -7,7 +7,7 @@
 
 package parsego
 
-import "go/token"
+import "github.com/tgo-lang/lang/token"
 
 // assert panics with the given msg if cond is not true.
 func assert(cond bool, msg string) {

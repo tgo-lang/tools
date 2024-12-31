@@ -5,17 +5,18 @@
 package checker_test
 
 import (
-	"go/ast"
 	"os"
 	"path/filepath"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/internal/checker"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/analysis/internal/checker"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // TestStartFixes make sure modifying the first character

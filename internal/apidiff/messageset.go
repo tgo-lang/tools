@@ -9,9 +9,10 @@ package apidiff
 
 import (
 	"fmt"
-	"go/types"
 	"sort"
 	"strings"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // There can be at most one message for each object or part thereof.

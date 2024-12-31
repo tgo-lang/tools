@@ -8,13 +8,14 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"go/constant"
-	"go/token"
 	"io"
 	"math/big"
 	"os"
 	"runtime"
 	"strings"
+
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
 )
 
 // A PkgDecoder provides methods for decoding a package's Unified IR

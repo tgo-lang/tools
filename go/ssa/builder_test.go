@@ -8,11 +8,6 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"go/ast"
-	"go/importer"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"io/fs"
 	"os"
 	"os/exec"
@@ -23,13 +18,19 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/importer"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/internal/expect"
+	"github.com/tgo-lang/tools/internal/testenv"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/tools/internal/expect"
-	"golang.org/x/tools/internal/testenv"
 )
 
 func isEmpty(f *ssa.Function) bool { return f.Blocks == nil }

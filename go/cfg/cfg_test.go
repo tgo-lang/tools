@@ -7,15 +7,16 @@ package cfg_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/parser"
-	"go/token"
 	"testing"
 
-	"golang.org/x/tools/go/cfg"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/cfg"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 const src = `package main
@@ -182,7 +183,7 @@ func TestSmoke(t *testing.T) {
 	// The Mode API is just hateful.
 	// https://github.com/golang/go/issues/48226#issuecomment-1948792315
 	mode := packages.NeedDeps | packages.NeedImports | packages.NeedSyntax | packages.NeedTypes
-	pkgs, err := packages.Load(&packages.Config{Mode: mode}, "std", "golang.org/x/tools/...")
+	pkgs, err := packages.Load(&packages.Config{Mode: mode}, "std", "github.com/tgo-lang/tools/...")
 	if err != nil {
 		t.Fatal(err)
 	}

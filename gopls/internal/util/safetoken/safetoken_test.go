@@ -6,15 +6,16 @@ package safetoken_test
 
 import (
 	"fmt"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"os"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestWorkaroundIssue57490(t *testing.T) {
@@ -77,14 +78,15 @@ func TestGoplsSourceDoesNotCallTokenFileMethods(t *testing.T) {
 	cfg := &packages.Config{
 		Mode: packages.NeedName | packages.NeedModule | packages.NeedCompiledGoFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedSyntax | packages.NeedImports | packages.NeedDeps,
 	}
-	cfg.Env = os.Environ()
-	cfg.Env = append(cfg.Env,
-		"GOPACKAGESDRIVER=off",
-		"GOWORK=off", // necessary for -mod=mod below
-		"GOFLAGS=-mod=mod",
-	)
+	// TODO(mateusz834): uncomment this after it is published and understand why it is needed.
+	//cfg.Env = os.Environ()
+	//cfg.Env = append(cfg.Env,
+	//	"GOPACKAGESDRIVER=off",
+	//	"GOWORK=off", // necessary for -mod=mod below
+	//	"GOFLAGS=-mod=mod",
+	//)
 
-	pkgs, err := packages.Load(cfg, "go/token", "golang.org/x/tools/gopls/...")
+	pkgs, err := packages.Load(cfg, "go/token", "github.com/tgo-lang/tools/gopls/...")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -117,8 +119,8 @@ func TestGoplsSourceDoesNotCallTokenFileMethods(t *testing.T) {
 	for _, pkg := range pkgs {
 		switch pkg.PkgPath {
 		case "go/token",
-			"golang.org/x/tools/gopls/internal/util/safetoken", // this package
-			"golang.org/x/tools/gopls/internal/cache/parsego":  // copies go/parser/resolver.go
+			"github.com/tgo-lang/tools/gopls/internal/util/safetoken", // this package
+			"github.com/tgo-lang/tools/gopls/internal/cache/parsego":  // copies go/parser/resolver.go
 			continue // allow calls within these packages
 		}
 

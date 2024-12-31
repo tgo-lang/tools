@@ -14,16 +14,16 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck/govulncheck"
+	"github.com/tgo-lang/tools/internal/event"
 	"golang.org/x/mod/modfile"
 	"golang.org/x/mod/semver"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/settings"
-	"golang.org/x/tools/gopls/internal/vulncheck/govulncheck"
-	"golang.org/x/tools/internal/event"
 )
 
 // ParseDiagnostics returns diagnostics from parsing the go.mod files in the workspace.

@@ -24,10 +24,11 @@ package gcimporter // import "golang.org/x/tools/internal/gcimporter"
 import (
 	"bufio"
 	"fmt"
-	"go/token"
-	"go/types"
 	"io"
 	"os"
+
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 const (

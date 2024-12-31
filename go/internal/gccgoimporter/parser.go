@@ -12,16 +12,17 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
-	"go/constant"
-	"go/token"
-	"go/types"
 	"io"
 	"strconv"
 	"strings"
 	"text/scanner"
 	"unicode/utf8"
 
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 type parser struct {

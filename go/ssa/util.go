@@ -8,16 +8,17 @@ package ssa
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"io"
 	"os"
 	"sync"
 
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/typeparams"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 type unit struct{}

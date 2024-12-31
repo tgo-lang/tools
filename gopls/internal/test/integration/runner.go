@@ -20,16 +20,16 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/debug"
-	"golang.org/x/tools/gopls/internal/lsprpc"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/test/integration/fake"
-	"golang.org/x/tools/internal/jsonrpc2"
-	"golang.org/x/tools/internal/jsonrpc2/servertest"
-	"golang.org/x/tools/internal/memoize"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/xcontext"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/debug"
+	"github.com/tgo-lang/tools/gopls/internal/lsprpc"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/test/integration/fake"
+	"github.com/tgo-lang/tools/internal/jsonrpc2"
+	"github.com/tgo-lang/tools/internal/jsonrpc2/servertest"
+	"github.com/tgo-lang/tools/internal/memoize"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/xcontext"
 )
 
 // Mode is a bitmask that defines for which execution modes a test should run.

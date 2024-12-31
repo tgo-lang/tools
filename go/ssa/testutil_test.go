@@ -8,19 +8,20 @@ package ssa_test
 
 import (
 	"fmt"
-	"go/parser"
-	"go/token"
 	"io/fs"
 	"os"
 	"testing"
 	"testing/fstest"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // goMod returns a go.mod file containing a name and a go directive

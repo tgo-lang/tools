@@ -10,11 +10,12 @@ package checker
 import (
 	"bytes"
 	"fmt"
-	"go/token"
 	"io"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/internal/analysisflags"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/internal/analysisflags"
 )
 
 // PrintText emits diagnostics as plain text to w.

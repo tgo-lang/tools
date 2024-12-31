@@ -11,10 +11,7 @@ package loader_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/token"
-	"go/types"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -22,9 +19,13 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/go/buildutil"
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/buildutil"
+	"github.com/tgo-lang/tools/go/loader"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestStdlib(t *testing.T) {

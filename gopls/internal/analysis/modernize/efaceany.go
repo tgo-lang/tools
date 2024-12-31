@@ -5,11 +5,11 @@
 package modernize
 
 import (
-	"go/ast"
+	"github.com/tgo-lang/lang/ast"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 // The efaceany pass replaces interface{} with go1.18's 'any'.

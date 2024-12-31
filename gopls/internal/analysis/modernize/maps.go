@@ -8,16 +8,17 @@ package modernize
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/internal/analysisinternal"
-	"golang.org/x/tools/internal/astutil/cursor"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/internal/astutil/cursor"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // The mapsloop pass offers to simplify a loop of map insertions:

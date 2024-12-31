@@ -8,16 +8,17 @@ package typesinternal_test
 
 import (
 	"bytes"
-	"go/ast"
-	"go/parser"
-	"go/printer"
-	"go/token"
-	"go/types"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 func TestZeroValue(t *testing.T) {

@@ -7,9 +7,10 @@ package typeparams
 import (
 	"errors"
 	"fmt"
-	"go/types"
 	"os"
 	"strings"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 //go:generate go run copytermlist.go

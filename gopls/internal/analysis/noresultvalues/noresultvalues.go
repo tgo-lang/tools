@@ -6,16 +6,17 @@ package noresultvalues
 
 import (
 	"bytes"
-	"go/ast"
-	"go/format"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
 
 	_ "embed"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
 )
 
 //go:embed doc.go

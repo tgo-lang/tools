@@ -7,16 +7,17 @@
 package stdversion
 
 import (
-	"go/ast"
 	"go/build"
-	"go/types"
 	"regexp"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/internal/typesinternal"
-	"golang.org/x/tools/internal/versions"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/internal/typesinternal"
+	"github.com/tgo-lang/tools/internal/versions"
 )
 
 const Doc = `report uses of too-new standard library symbols

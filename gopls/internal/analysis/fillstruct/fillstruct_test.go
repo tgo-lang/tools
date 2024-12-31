@@ -5,12 +5,13 @@
 package fillstruct_test
 
 import (
-	"go/token"
 	"testing"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/gopls/internal/analysis/fillstruct"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/fillstruct"
 )
 
 // analyzer allows us to test the fillstruct code action using the analysistest

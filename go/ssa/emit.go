@@ -8,11 +8,12 @@ package ssa
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // emitAlloc emits to f a new Alloc instruction allocating a variable

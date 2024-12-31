@@ -6,18 +6,19 @@ package analysisinternal_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/importer"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"runtime"
 	"strings"
 	"testing"
 
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/importer"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
 	"github.com/google/go-cmp/cmp"
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
 )
 
 func TestAddImport(t *testing.T) {

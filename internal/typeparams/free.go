@@ -5,9 +5,9 @@
 package typeparams
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/aliases"
 )
 
 // Free is a memoization of the set of free type parameters within a

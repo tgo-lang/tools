@@ -7,9 +7,10 @@
 package gcimporter
 
 import (
-	"go/token"
-	"go/types"
 	"unsafe"
+
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // TODO(rfindley): delete this workaround once go1.24 is assured.

@@ -8,17 +8,18 @@ import (
 	"bytes"
 	_ "embed"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/types"
 	"regexp"
 	"strings"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/fuzzy"
-	"golang.org/x/tools/internal/analysisinternal"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/fuzzy"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 //go:embed doc.go

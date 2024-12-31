@@ -74,18 +74,19 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/printer"
-	"go/token"
-	"go/types"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/go/packages"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
 )
 
 var (

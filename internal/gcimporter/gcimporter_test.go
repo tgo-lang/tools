@@ -10,12 +10,6 @@ package gcimporter_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/constant"
-	goimporter "go/importer"
-	goparser "go/parser"
-	"go/token"
-	"go/types"
 	"os"
 	"os/exec"
 	"path"
@@ -27,9 +21,16 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/internal/gcimporter"
-	"golang.org/x/tools/internal/goroot"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	goimporter "github.com/tgo-lang/lang/importer"
+	goparser "github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/gcimporter"
+	"github.com/tgo-lang/tools/internal/goroot"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestMain(m *testing.M) {

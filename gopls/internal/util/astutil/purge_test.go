@@ -5,16 +5,17 @@
 package astutil_test
 
 import (
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"os"
 	"reflect"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/gopls/internal/util/astutil"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // TestPurgeFuncBodies tests PurgeFuncBodies by comparing it against a

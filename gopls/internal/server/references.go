@@ -7,13 +7,13 @@ package server
 import (
 	"context"
 
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/golang"
-	"golang.org/x/tools/gopls/internal/label"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/telemetry"
-	"golang.org/x/tools/gopls/internal/template"
-	"golang.org/x/tools/internal/event"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/golang"
+	"github.com/tgo-lang/tools/gopls/internal/label"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/telemetry"
+	"github.com/tgo-lang/tools/gopls/internal/template"
+	"github.com/tgo-lang/tools/internal/event"
 )
 
 func (s *server) References(ctx context.Context, params *protocol.ReferenceParams) (_ []protocol.Location, rerr error) {

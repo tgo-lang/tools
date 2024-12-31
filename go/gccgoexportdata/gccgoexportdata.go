@@ -17,13 +17,14 @@ import (
 	"bytes"
 	"debug/elf"
 	"fmt"
-	"go/token"
-	"go/types"
 	"io"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/internal/gccgoimporter"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/internal/gccgoimporter"
 )
 
 // CompilerInfo executes the specified gccgo compiler and returns

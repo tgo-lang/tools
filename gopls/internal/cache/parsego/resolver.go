@@ -8,9 +8,10 @@ package parsego
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 const debugResolve = false

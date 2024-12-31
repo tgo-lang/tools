@@ -6,11 +6,12 @@ package tokeninternal_test
 
 import (
 	"fmt"
-	"go/token"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/tokeninternal"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/internal/tokeninternal"
 )
 
 func TestAddExistingFiles(t *testing.T) {

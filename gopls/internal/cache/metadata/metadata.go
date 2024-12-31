@@ -13,15 +13,16 @@
 package metadata
 
 import (
-	"go/ast"
-	"go/types"
 	"sort"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/internal/packagesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/internal/packagesinternal"
 )
 
 // Declare explicit types for package paths, names, and IDs to ensure that we

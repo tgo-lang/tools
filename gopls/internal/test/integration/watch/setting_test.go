@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	. "golang.org/x/tools/gopls/internal/test/integration"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
 )
 
 func TestSubdirWatchPatterns(t *testing.T) {

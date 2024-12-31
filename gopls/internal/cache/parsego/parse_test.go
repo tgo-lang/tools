@@ -6,13 +6,14 @@ package parsego_test
 
 import (
 	"context"
-	"go/ast"
-	"go/token"
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/util/safetoken"
-	"golang.org/x/tools/internal/tokeninternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/util/safetoken"
+	"github.com/tgo-lang/tools/internal/tokeninternal"
 )
 
 // TODO(golang/go#64335): we should have many more tests for fixed syntax.

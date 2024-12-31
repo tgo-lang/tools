@@ -9,9 +9,10 @@ package gcimporter
 
 import (
 	"fmt"
-	"go/token"
-	"go/types"
 	"sync"
+
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 func errorf(format string, args ...interface{}) {

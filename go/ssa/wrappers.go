@@ -22,10 +22,10 @@ package ssa
 import (
 	"fmt"
 
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // -- wrappers -----------------------------------------------------------

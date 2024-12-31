@@ -16,8 +16,6 @@ package checker
 import (
 	"flag"
 	"fmt"
-	"go/format"
-	"go/token"
 	"io"
 	"io/ioutil"
 	"log"
@@ -29,12 +27,15 @@ import (
 	"strings"
 	"time"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/checker"
-	"golang.org/x/tools/go/analysis/internal/analysisflags"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/diff"
-	"golang.org/x/tools/internal/robustio"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/checker"
+	"github.com/tgo-lang/tools/go/analysis/internal/analysisflags"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/diff"
+	"github.com/tgo-lang/tools/internal/robustio"
 )
 
 var (

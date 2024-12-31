@@ -5,10 +5,11 @@
 package cache
 
 import (
-	"go/ast"
 	"go/build/constraint"
-	"go/parser"
-	"go/token"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
 )
 
 // isStandaloneFile reports whether a file with the given contents should be

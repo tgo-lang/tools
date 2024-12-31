@@ -5,10 +5,10 @@
 package completion
 
 import (
-	"go/ast"
+	"github.com/tgo-lang/lang/ast"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/astutil"
 )
 
 const (

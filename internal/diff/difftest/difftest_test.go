@@ -14,8 +14,8 @@ import (
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/internal/diff/difftest"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/diff/difftest"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestVerifyUnified(t *testing.T) {

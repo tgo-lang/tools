@@ -8,11 +8,11 @@ package ssa
 // expressions.
 
 import (
-	"go/ast"
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // An lvalue represents an assignable location that may appear on the

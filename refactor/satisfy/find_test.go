@@ -6,16 +6,17 @@ package satisfy_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/importer"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"reflect"
 	"sort"
 	"testing"
 
-	"golang.org/x/tools/refactor/satisfy"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/importer"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/refactor/satisfy"
 )
 
 // This test exercises various operations on core types of type parameters.

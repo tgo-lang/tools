@@ -16,13 +16,14 @@ package main
 import (
 	"bytes"
 	"go/build/constraint"
-	"go/scanner"
-	"go/token"
 	"log"
 	"os"
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	"github.com/tgo-lang/lang/scanner"
+	"github.com/tgo-lang/lang/token"
 )
 
 func main() {

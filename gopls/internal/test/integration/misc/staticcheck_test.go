@@ -7,7 +7,7 @@ package misc
 import (
 	"testing"
 
-	. "golang.org/x/tools/gopls/internal/test/integration"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
 )
 
 func TestStaticcheckGenerics(t *testing.T) {

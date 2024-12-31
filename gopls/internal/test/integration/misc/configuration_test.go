@@ -7,14 +7,16 @@ package misc
 import (
 	"testing"
 
-	. "golang.org/x/tools/gopls/internal/test/integration"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
 
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // Test that enabling and disabling produces the expected results of showing
 // and hiding staticcheck analysis results.
 func TestChangeConfiguration(t *testing.T) {
+	// TODO(mateusz834): fork staticcheck and re-enable test.
+	t.Skip("staticcheck is disabled")
 	const files = `
 -- go.mod --
 module mod.com
@@ -159,6 +161,8 @@ type B struct {
 //
 // Gopls should not get confused about buffer content when recreating the view.
 func TestMajorOptionsChange(t *testing.T) {
+	// TODO(mateusz834): fork staticcheck and re-enable test.
+	t.Skip("staticcheck is disabled")
 	const files = `
 -- go.mod --
 module mod.com

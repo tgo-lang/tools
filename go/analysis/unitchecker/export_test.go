@@ -5,8 +5,8 @@
 package unitchecker
 
 import (
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // This file exposes various internal hooks to the separate_test.

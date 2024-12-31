@@ -8,9 +8,9 @@ package shift
 // Used for skipping shift checks on unreachable arch-specific code.
 
 import (
-	"go/ast"
-	"go/constant"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/types"
 )
 
 // updateDead puts unreachable "if" and "case" nodes into dead.

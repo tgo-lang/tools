@@ -6,7 +6,7 @@
 
 package typeparams
 
-import "go/types"
+import "github.com/tgo-lang/lang/types"
 
 // A term describes elementary type sets:
 //

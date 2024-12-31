@@ -32,7 +32,6 @@ import (
 	"bytes"
 	"encoding/gob"
 	"fmt"
-	"go/types"
 	"io"
 	"log"
 	"reflect"
@@ -41,11 +40,13 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/internal"
-	"golang.org/x/tools/go/analysis/internal/analysisflags"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/analysisinternal"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/internal"
+	"github.com/tgo-lang/tools/go/analysis/internal/analysisflags"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
 )
 
 // Options specifies options that control the analysis driver.

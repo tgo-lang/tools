@@ -19,8 +19,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/vulncheck"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/vulncheck"
 )
 
 // Interface defines the interface gopls exposes for the

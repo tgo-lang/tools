@@ -20,7 +20,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
 )
 
 // AssemblyHTML returns an HTML document containing an assembly listing of the selected function.

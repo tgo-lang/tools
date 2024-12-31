@@ -8,14 +8,15 @@ package ssautil_test
 // We are keeping some tests around to have some test of the public API.
 
 import (
-	"go/parser"
 	"os"
 	"testing"
 
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/parser"
+
+	"github.com/tgo-lang/tools/go/loader"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // TestCreateProgram tests CreateProgram which has an x/tools/go/loader.Program.

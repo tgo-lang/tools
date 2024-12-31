@@ -9,16 +9,17 @@
 package ctrlflow
 
 import (
-	"go/ast"
-	"go/types"
 	"log"
 	"reflect"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/go/cfg"
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/go/cfg"
+	"github.com/tgo-lang/tools/go/types/typeutil"
 )
 
 var Analyzer = &analysis.Analyzer{

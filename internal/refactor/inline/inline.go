@@ -7,24 +7,25 @@ package inline
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/constant"
-	"go/format"
-	"go/parser"
-	"go/printer"
-	"go/token"
-	"go/types"
 	pathpkg "path"
 	"reflect"
 	"slices"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/imports"
-	internalastutil "golang.org/x/tools/internal/astutil"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/printer"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/imports"
+	internalastutil "github.com/tgo-lang/tools/internal/astutil"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // A Caller describes the function call and its enclosing context.

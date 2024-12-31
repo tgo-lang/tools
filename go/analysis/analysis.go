@@ -7,10 +7,11 @@ package analysis
 import (
 	"flag"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"reflect"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // An Analyzer describes an analysis function and its options.

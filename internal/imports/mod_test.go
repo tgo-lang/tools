@@ -19,12 +19,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/tgo-lang/tools/internal/gocommand"
+	"github.com/tgo-lang/tools/internal/gopathwalk"
+	"github.com/tgo-lang/tools/internal/proxydir"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/txtar"
 	"golang.org/x/mod/module"
-	"golang.org/x/tools/internal/gocommand"
-	"golang.org/x/tools/internal/gopathwalk"
-	"golang.org/x/tools/internal/proxydir"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/txtar"
 )
 
 // Tests that we can find packages in the stdlib.

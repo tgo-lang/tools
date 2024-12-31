@@ -6,11 +6,12 @@ package printf
 
 import (
 	"fmt"
-	"go/ast"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 var errorType = types.Universe.Lookup("error").Type().Underlying().(*types.Interface)

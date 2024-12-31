@@ -6,15 +6,16 @@ package packagestest
 
 import (
 	"fmt"
-	"go/token"
 	"os"
 	"path/filepath"
 	"reflect"
 	"regexp"
 	"strings"
 
-	"golang.org/x/tools/go/expect"
-	"golang.org/x/tools/go/packages"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/expect"
+	"github.com/tgo-lang/tools/go/packages"
 )
 
 const (

@@ -8,18 +8,19 @@ package ssa_test
 
 import (
 	"fmt"
-	"go/ast"
-	"go/constant"
-	"go/token"
-	"go/types"
 	"os"
 	"runtime"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/internal/expect"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/internal/expect"
 )
 
 func TestObjValueLookup(t *testing.T) {

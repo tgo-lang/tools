@@ -5,10 +5,10 @@
 package facts
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/aliases"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // importMap computes the import map for a package by traversing the

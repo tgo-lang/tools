@@ -11,10 +11,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/token"
-	"go/types"
 	"os"
 	"path/filepath"
 	"sort"
@@ -23,14 +19,19 @@ import (
 	"text/template"
 	"unicode"
 
-	"golang.org/x/tools/go/ast/astutil"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/protocol"
-	goplsastutil "golang.org/x/tools/gopls/internal/util/astutil"
-	"golang.org/x/tools/internal/imports"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ast/astutil"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	goplsastutil "github.com/tgo-lang/tools/gopls/internal/util/astutil"
+	"github.com/tgo-lang/tools/internal/imports"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 const testTmplString = `

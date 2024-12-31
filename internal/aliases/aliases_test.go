@@ -5,14 +5,15 @@
 package aliases_test
 
 import (
-	"go/ast"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"testing"
 
-	"golang.org/x/tools/internal/aliases"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 // TestNewAlias tests that alias.NewAlias creates an alias of a type
@@ -48,7 +49,8 @@ func TestNewAlias(t *testing.T) {
 		// behavior implied by the x/tools go.mod go directive. But that only works
 		// if x/tools is the main module for the test, which isn't the case when
 		// run with a go.work file, or from another module (golang/go#70082).
-		"gotypesalias=0",
+		// TODO(mateusz834): do we need to test gotypesalias=0?, we don't have a mechanism to set it to zero.
+		//"gotypesalias=0",
 		"gotypesalias=1",
 	} {
 		t.Run(godebug, func(t *testing.T) {

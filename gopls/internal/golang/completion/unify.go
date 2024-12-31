@@ -47,8 +47,9 @@ package completion
 
 import (
 	"fmt"
-	"go/types"
 	"strings"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 const (

@@ -6,9 +6,10 @@ package inline
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // escape implements a simple "address-taken" escape analysis. It

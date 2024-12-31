@@ -7,16 +7,17 @@ package apidiff
 import (
 	"bufio"
 	"fmt"
-	"go/types"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
 	"testing"
 
+	"github.com/tgo-lang/lang/types"
+
 	"github.com/google/go-cmp/cmp"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestChanges(t *testing.T) {
@@ -140,7 +141,7 @@ func load(t *testing.T, importPath, goPath string) (*packages.Package, error) {
 }
 
 func TestExportedFields(t *testing.T) {
-	pkg, err := load(t, "golang.org/x/tools/internal/apidiff/testdata/exported_fields", "")
+	pkg, err := load(t, "github.com/tgo-lang/tools/internal/apidiff/testdata/exported_fields", "")
 	if err != nil {
 		t.Fatal(err)
 	}

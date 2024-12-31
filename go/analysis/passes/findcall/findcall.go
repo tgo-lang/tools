@@ -12,10 +12,11 @@ package findcall
 
 import (
 	"fmt"
-	"go/ast"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
 )
 
 const Doc = `find calls to a particular function

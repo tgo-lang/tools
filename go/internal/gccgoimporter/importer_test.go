@@ -9,7 +9,6 @@
 package gccgoimporter
 
 import (
-	"go/types"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -17,6 +16,8 @@ import (
 	"runtime"
 	"strconv"
 	"testing"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 type importerTest struct {

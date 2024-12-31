@@ -8,13 +8,14 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"go/scanner"
-	"go/token"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/lang/scanner"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 // information needed for completion

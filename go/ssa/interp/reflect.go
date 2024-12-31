@@ -12,12 +12,13 @@ package interp
 
 import (
 	"fmt"
-	"go/token"
-	"go/types"
 	"reflect"
 	"unsafe"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 type opaqueType struct {

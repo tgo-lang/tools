@@ -7,15 +7,16 @@ package unusedparams
 import (
 	_ "embed"
 	"fmt"
-	"go/ast"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/ast/inspector"
-	"golang.org/x/tools/gopls/internal/util/moreslices"
-	"golang.org/x/tools/internal/analysisinternal"
-	"golang.org/x/tools/internal/astutil/cursor"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/ast/inspector"
+	"github.com/tgo-lang/tools/gopls/internal/util/moreslices"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/internal/astutil/cursor"
 )
 
 //go:embed doc.go

@@ -14,16 +14,17 @@ package imports
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/format"
-	"go/parser"
-	"go/token"
 	"log"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
 )
 
 var (

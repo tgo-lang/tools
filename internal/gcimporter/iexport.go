@@ -230,9 +230,6 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"go/constant"
-	"go/token"
-	"go/types"
 	"io"
 	"math/big"
 	"reflect"
@@ -240,8 +237,12 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/types/objectpath"
-	"golang.org/x/tools/internal/aliases"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/types/objectpath"
+	"github.com/tgo-lang/tools/internal/aliases"
 )
 
 // IExportShallow encodes "shallow" export data for the specified package.

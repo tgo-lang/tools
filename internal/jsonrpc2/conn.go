@@ -11,8 +11,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"golang.org/x/tools/internal/event"
-	"golang.org/x/tools/internal/event/label"
+	"github.com/tgo-lang/tools/internal/event"
+	"github.com/tgo-lang/tools/internal/event/label"
 )
 
 // Conn is the common interface to jsonrpc clients and servers.

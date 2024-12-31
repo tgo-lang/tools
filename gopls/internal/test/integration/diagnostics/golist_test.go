@@ -7,9 +7,9 @@ package diagnostics
 import (
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/cache"
-	. "golang.org/x/tools/gopls/internal/test/integration"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func TestGoListErrors(t *testing.T) {

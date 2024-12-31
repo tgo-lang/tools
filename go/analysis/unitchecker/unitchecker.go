@@ -31,12 +31,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/importer"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"io"
 	"log"
 	"os"
@@ -47,10 +42,16 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/internal/analysisflags"
-	"golang.org/x/tools/internal/analysisinternal"
-	"golang.org/x/tools/internal/facts"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/importer"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/internal/analysisflags"
+	"github.com/tgo-lang/tools/internal/analysisinternal"
+	"github.com/tgo-lang/tools/internal/facts"
 )
 
 // A Config describes a compilation unit to be analyzed.

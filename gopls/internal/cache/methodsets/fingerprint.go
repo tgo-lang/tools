@@ -5,11 +5,12 @@ package methodsets
 
 import (
 	"fmt"
-	"go/types"
 	"reflect"
 	"strconv"
 	"strings"
 	"text/scanner"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // Fingerprint syntax

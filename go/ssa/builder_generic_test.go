@@ -7,15 +7,16 @@ package ssa_test
 import (
 	"bytes"
 	"fmt"
-	"go/parser"
-	"go/token"
 	"reflect"
 	"sort"
 	"testing"
 
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/internal/expect"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/loader"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/internal/expect"
 )
 
 // TestGenericBodies tests that bodies of generic functions and methods containing

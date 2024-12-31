@@ -9,15 +9,16 @@ import (
 	"flag"
 	"fmt"
 	"go/build"
-	"go/types"
 	"os"
 	"runtime"
 	"runtime/pprof"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/interp"
-	"golang.org/x/tools/go/ssa/ssautil"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/ssa/interp"
+	"github.com/tgo-lang/tools/go/ssa/ssautil"
 )
 
 // flags

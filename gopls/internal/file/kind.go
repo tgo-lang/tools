@@ -7,7 +7,7 @@ package file
 import (
 	"fmt"
 
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 )
 
 // Kind describes the kind of the file in question.

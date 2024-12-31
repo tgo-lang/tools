@@ -7,20 +7,21 @@ package golang
 import (
 	"context"
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/gopls/internal/analysis/embeddirective"
-	"golang.org/x/tools/gopls/internal/analysis/fillstruct"
-	"golang.org/x/tools/gopls/internal/analysis/unusedparams"
-	"golang.org/x/tools/gopls/internal/cache"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/internal/imports"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/embeddirective"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/fillstruct"
+	"github.com/tgo-lang/tools/gopls/internal/analysis/unusedparams"
+	"github.com/tgo-lang/tools/gopls/internal/cache"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/internal/imports"
 )
 
 // A fixer is a function that suggests a fix for a diagnostic produced

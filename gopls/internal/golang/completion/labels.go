@@ -5,9 +5,10 @@
 package completion
 
 import (
-	"go/ast"
-	"go/token"
 	"math"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 type labelType int

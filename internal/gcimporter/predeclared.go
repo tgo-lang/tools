@@ -5,8 +5,9 @@
 package gcimporter
 
 import (
-	"go/types"
 	"sync"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // predecl is a cache for the predeclared types in types.Universe.

@@ -5,10 +5,10 @@
 package testinggoroutine
 
 import (
-	"go/ast"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // AST and types utilities that not specific to testinggoroutines.

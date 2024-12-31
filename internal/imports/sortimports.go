@@ -8,11 +8,12 @@
 package imports
 
 import (
-	"go/ast"
-	"go/token"
 	"log"
 	"sort"
 	"strconv"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 // sortImports sorts runs of consecutive import lines in import blocks in f.

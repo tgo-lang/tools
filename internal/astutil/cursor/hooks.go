@@ -7,10 +7,11 @@
 package cursor
 
 import (
-	"go/ast"
 	_ "unsafe" // for go:linkname
 
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 // This file defines backdoor access to inspector.
@@ -24,10 +25,10 @@ type event struct {
 	parent int32  // index of parent's push node (defined for push nodes only)
 }
 
-//go:linkname maskOf golang.org/x/tools/go/ast/inspector.maskOf
+//go:linkname maskOf github.com/tgo-lang/tools/go/ast/inspector.maskOf
 func maskOf(nodes []ast.Node) uint64
 
-//go:linkname events golang.org/x/tools/go/ast/inspector.events
+//go:linkname events github.com/tgo-lang/tools/go/ast/inspector.events
 func events(in *inspector.Inspector) []event
 
 func (c Cursor) events() []event { return events(c.in) }

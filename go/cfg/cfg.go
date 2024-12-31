@@ -44,9 +44,10 @@ package cfg
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/format"
-	"go/token"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
 )
 
 // A CFG represents the control-flow graph of a single function.

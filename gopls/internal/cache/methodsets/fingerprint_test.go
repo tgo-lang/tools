@@ -10,14 +10,15 @@ package methodsets
 // Break fingerprint.go off into its own package?
 
 import (
-	"go/types"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/typeutil"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/types/typeutil"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // Test_fingerprint runs the fingerprint encoder, decoder, and printer
@@ -29,7 +30,7 @@ func Test_fingerprint(t *testing.T) {
 	}
 
 	cfg := &packages.Config{Mode: packages.NeedTypes}
-	pkgs, err := packages.Load(cfg, "std", "golang.org/x/tools/gopls/...")
+	pkgs, err := packages.Load(cfg, "std", "github.com/tgo-lang/tools/gopls/...")
 	if err != nil {
 		t.Fatal(err)
 	}

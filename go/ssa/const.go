@@ -8,13 +8,14 @@ package ssa
 
 import (
 	"fmt"
-	"go/constant"
-	"go/token"
-	"go/types"
 	"strconv"
 
-	"golang.org/x/tools/internal/typeparams"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/typeparams"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // NewConst returns a new constant of the specified value and type.

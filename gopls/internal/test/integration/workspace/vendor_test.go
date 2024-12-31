@@ -7,7 +7,7 @@ package workspace
 import (
 	"testing"
 
-	. "golang.org/x/tools/gopls/internal/test/integration"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
 )
 
 func TestWorkspacePackagesExcludesVendor(t *testing.T) {

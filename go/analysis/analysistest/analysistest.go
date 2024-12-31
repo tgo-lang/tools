@@ -8,9 +8,6 @@ package analysistest
 import (
 	"bytes"
 	"fmt"
-	"go/format"
-	"go/token"
-	"go/types"
 	"log"
 	"os"
 	"path/filepath"
@@ -22,13 +19,17 @@ import (
 	"testing"
 	"text/scanner"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/checker"
-	"golang.org/x/tools/go/analysis/internal"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/diff"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/format"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/checker"
+	"github.com/tgo-lang/tools/go/analysis/internal"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/diff"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // WriteFiles is a helper function that creates a temporary directory
@@ -148,7 +149,7 @@ func RunWithSuggestedFixes(t Testing, dir string, a *analysis.Analyzer, patterns
 		n := runtime.Callers(1, pcs[:])
 		frames := runtime.CallersFrames(pcs[:n])
 		fr, _ := frames.Next()
-		if fr.Func != nil && strings.HasPrefix(fr.Func.Name(), "golang.org/x/tools/") {
+		if fr.Func != nil && strings.HasPrefix(fr.Func.Name(), "github.com/tgo-lang/tools/") {
 			inTools = true
 		}
 	}

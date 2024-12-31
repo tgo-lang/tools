@@ -8,14 +8,15 @@ package unsafeptr
 
 import (
 	_ "embed"
-	"go/ast"
-	"go/token"
-	"go/types"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/inspect"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/inspect"
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 //go:embed doc.go

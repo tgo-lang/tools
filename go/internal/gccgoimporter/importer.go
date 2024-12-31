@@ -11,11 +11,12 @@ package gccgoimporter // import "golang.org/x/tools/go/internal/gccgoimporter"
 import (
 	"debug/elf"
 	"fmt"
-	"go/types"
 	"io"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // A PackageInit describes an imported package that needs initialization.

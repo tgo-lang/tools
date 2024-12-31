@@ -16,13 +16,13 @@ import (
 	"sort"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/debug"
-	"golang.org/x/tools/gopls/internal/doc"
-	"golang.org/x/tools/gopls/internal/filecache"
-	licensespkg "golang.org/x/tools/gopls/internal/licenses"
-	"golang.org/x/tools/gopls/internal/util/browser"
-	goplsbug "golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/internal/tool"
+	"github.com/tgo-lang/tools/gopls/internal/debug"
+	"github.com/tgo-lang/tools/gopls/internal/doc"
+	"github.com/tgo-lang/tools/gopls/internal/filecache"
+	licensespkg "github.com/tgo-lang/tools/gopls/internal/licenses"
+	"github.com/tgo-lang/tools/gopls/internal/util/browser"
+	goplsbug "github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/internal/tool"
 )
 
 // help implements the help command.

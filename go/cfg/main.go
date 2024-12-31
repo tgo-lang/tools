@@ -18,12 +18,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go/ast"
 	"log"
 	"os"
 
-	"golang.org/x/tools/go/cfg"
-	"golang.org/x/tools/go/packages"
+	"github.com/tgo-lang/lang/ast"
+
+	"github.com/tgo-lang/tools/go/cfg"
+	"github.com/tgo-lang/tools/go/packages"
 )
 
 func main() {

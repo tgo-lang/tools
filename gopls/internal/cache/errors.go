@@ -11,23 +11,24 @@ package cache
 import (
 	"context"
 	"fmt"
-	"go/parser"
-	"go/scanner"
-	"go/token"
 	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/gopls/internal/cache/metadata"
-	"golang.org/x/tools/gopls/internal/cache/parsego"
-	"golang.org/x/tools/gopls/internal/file"
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/protocol/command"
-	"golang.org/x/tools/gopls/internal/settings"
-	"golang.org/x/tools/gopls/internal/util/bug"
-	"golang.org/x/tools/internal/typesinternal"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/scanner"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/gopls/internal/cache/metadata"
+	"github.com/tgo-lang/tools/gopls/internal/cache/parsego"
+	"github.com/tgo-lang/tools/gopls/internal/file"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol/command"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/tools/internal/typesinternal"
 )
 
 // goPackagesErrorDiagnostics translates the given go/packages Error into a
@@ -370,7 +371,7 @@ func onlyDeletions(fixes []SuggestedFix) bool {
 }
 
 func typesCodeHref(linkTarget string, code typesinternal.ErrorCode) string {
-	return BuildLink(linkTarget, "golang.org/x/tools/internal/typesinternal", code.String())
+	return BuildLink(linkTarget, "github.com/tgo-lang/tools/internal/typesinternal", code.String())
 }
 
 // BuildLink constructs a URL with the given target, path, and anchor.

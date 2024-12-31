@@ -8,11 +8,12 @@ package tokeninternal
 
 import (
 	"fmt"
-	"go/token"
 	"sort"
 	"sync"
 	"sync/atomic"
 	"unsafe"
+
+	"github.com/tgo-lang/lang/token"
 )
 
 // AddExistingFiles adds the specified files to the FileSet if they

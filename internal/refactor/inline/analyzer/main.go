@@ -12,8 +12,8 @@
 package main
 
 import (
-	"golang.org/x/tools/go/analysis/singlechecker"
-	inlineanalyzer "golang.org/x/tools/internal/refactor/inline/analyzer"
+	"github.com/tgo-lang/tools/go/analysis/singlechecker"
+	inlineanalyzer "github.com/tgo-lang/tools/internal/refactor/inline/analyzer"
 )
 
 func main() { singlechecker.Main(inlineanalyzer.Analyzer) }

@@ -6,8 +6,9 @@ package completion
 
 import (
 	"context"
-	"go/ast"
-	"go/types"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 )
 
 // builtinArgKind determines the expected object kind for a builtin

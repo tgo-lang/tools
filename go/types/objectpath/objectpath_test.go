@@ -7,22 +7,23 @@ package objectpath_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
 	"go/build"
-	"go/importer"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"slices"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/gcexportdata"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/go/types/objectpath"
-	"golang.org/x/tools/internal/aliases"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/importer"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/gcexportdata"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/go/types/objectpath"
+	"github.com/tgo-lang/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 func TestPaths(t *testing.T) {

@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/test/integration/fake"
-	"golang.org/x/tools/internal/drivertest"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/test/integration/fake"
+	"github.com/tgo-lang/tools/internal/drivertest"
 )
 
 type runConfig struct {

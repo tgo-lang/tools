@@ -13,8 +13,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/tgo-lang/tools/gopls/internal/util/lru"
 	"golang.org/x/sync/errgroup"
-	"golang.org/x/tools/gopls/internal/util/lru"
 )
 
 func TestCache(t *testing.T) {

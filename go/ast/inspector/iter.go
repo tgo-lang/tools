@@ -7,8 +7,9 @@
 package inspector
 
 import (
-	"go/ast"
 	"iter"
+
+	"github.com/tgo-lang/lang/ast"
 )
 
 // PreorderSeq returns an iterator that visits all the

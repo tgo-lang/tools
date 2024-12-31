@@ -13,7 +13,8 @@ package safetoken
 
 import (
 	"fmt"
-	"go/token"
+
+	"github.com/tgo-lang/lang/token"
 )
 
 // Offset returns f.Offset(pos), but first checks that the file

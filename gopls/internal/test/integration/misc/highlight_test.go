@@ -8,8 +8,8 @@ import (
 	"sort"
 	"testing"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	. "golang.org/x/tools/gopls/internal/test/integration"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	. "github.com/tgo-lang/tools/gopls/internal/test/integration"
 )
 
 func TestWorkspacePackageHighlight(t *testing.T) {

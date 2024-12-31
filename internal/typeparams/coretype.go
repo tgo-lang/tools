@@ -6,7 +6,8 @@ package typeparams
 
 import (
 	"fmt"
-	"go/types"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // CoreType returns the core type of T or nil if T does not have a core type.

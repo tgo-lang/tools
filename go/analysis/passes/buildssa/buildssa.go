@@ -9,12 +9,13 @@
 package buildssa
 
 import (
-	"go/ast"
-	"go/types"
 	"reflect"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 var Analyzer = &analysis.Analyzer{

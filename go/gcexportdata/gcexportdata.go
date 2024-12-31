@@ -66,12 +66,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go/token"
-	"go/types"
 	"io"
 	"os/exec"
 
-	"golang.org/x/tools/internal/gcimporter"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/gcimporter"
 )
 
 // Find returns the name of an object (.o) or archive (.a) file

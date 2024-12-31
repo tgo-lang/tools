@@ -13,9 +13,9 @@
 package typeparams
 
 import (
-	"go/ast"
-	"go/token"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // UnpackIndexExpr extracts data from AST nodes that represent index

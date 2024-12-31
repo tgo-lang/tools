@@ -39,12 +39,13 @@ package rta // import "golang.org/x/tools/go/callgraph/rta"
 
 import (
 	"fmt"
-	"go/types"
 	"hash/crc32"
 
-	"golang.org/x/tools/go/callgraph"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/types/typeutil"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/callgraph"
+	"github.com/tgo-lang/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/types/typeutil"
 )
 
 // A Result holds the results of Rapid Type Analysis, which includes the

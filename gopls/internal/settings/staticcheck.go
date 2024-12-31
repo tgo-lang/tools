@@ -5,7 +5,7 @@
 package settings
 
 import (
-	"golang.org/x/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
 	"honnef.co/go/tools/analysis/lint"
 	"honnef.co/go/tools/quickfix"
 	"honnef.co/go/tools/simple"
@@ -42,11 +42,13 @@ func init() {
 				continue
 			}
 
-			StaticcheckAnalyzers[a.Analyzer.Name] = &Analyzer{
-				analyzer: a.Analyzer,
-				enabled:  !a.Doc.NonDefault,
-				severity: mapSeverity(a.Doc.Severity),
-			}
+			// TODO(mateusz834): fork staticcheck and re-enable code below, and TestChangeConfiguration.
+			//StaticcheckAnalyzers[a.Analyzer.Name] = &Analyzer{
+			//	analyzer: a.Analyzer,
+			//	enabled:  !a.Doc.NonDefault,
+			//	severity: mapSeverity(a.Doc.Severity),
+			//}
+			_ = mapSeverity
 		}
 	}
 

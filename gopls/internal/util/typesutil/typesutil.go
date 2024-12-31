@@ -6,10 +6,11 @@ package typesutil
 
 import (
 	"bytes"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // FormatTypeParams turns TypeParamList into its Go representation, such as:

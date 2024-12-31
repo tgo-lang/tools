@@ -5,11 +5,12 @@
 package ctrlflow_test
 
 import (
-	"go/ast"
 	"testing"
 
-	"golang.org/x/tools/go/analysis/analysistest"
-	"golang.org/x/tools/go/analysis/passes/ctrlflow"
+	"github.com/tgo-lang/lang/ast"
+
+	"github.com/tgo-lang/tools/go/analysis/analysistest"
+	"github.com/tgo-lang/tools/go/analysis/passes/ctrlflow"
 )
 
 func Test(t *testing.T) {

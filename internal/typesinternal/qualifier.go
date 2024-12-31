@@ -5,9 +5,10 @@
 package typesinternal
 
 import (
-	"go/ast"
-	"go/types"
 	"strconv"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 )
 
 // FileQualifier returns a [types.Qualifier] function that qualifies

@@ -8,9 +8,10 @@ package astutil
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
 	"sort"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
 )
 
 // PathEnclosingInterval returns the node that encloses the source

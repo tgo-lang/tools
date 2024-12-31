@@ -5,8 +5,9 @@
 package astutil
 
 import (
-	"go/ast"
 	"reflect"
+
+	"github.com/tgo-lang/lang/ast"
 )
 
 // CloneNode returns a deep copy of a Node.

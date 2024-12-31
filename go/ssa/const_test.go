@@ -5,16 +5,17 @@
 package ssa_test
 
 import (
-	"go/ast"
-	"go/constant"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"math/big"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 func TestConstString(t *testing.T) {

@@ -8,12 +8,13 @@ package gcimporter
 
 import (
 	"fmt"
-	"go/token"
-	"go/types"
 	"sort"
 
-	"golang.org/x/tools/internal/aliases"
-	"golang.org/x/tools/internal/pkgbits"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/aliases"
+	"github.com/tgo-lang/tools/internal/pkgbits"
 )
 
 // A pkgReader holds the shared state for reading a unified IR package

@@ -35,8 +35,9 @@ package inspector
 // and found to degrade performance significantly (30%).
 
 import (
-	"go/ast"
 	_ "unsafe"
+
+	"github.com/tgo-lang/lang/ast"
 )
 
 // An Inspector provides methods for inspecting

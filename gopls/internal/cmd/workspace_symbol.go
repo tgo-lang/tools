@@ -10,9 +10,9 @@ import (
 	"fmt"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/protocol"
-	"golang.org/x/tools/gopls/internal/settings"
-	"golang.org/x/tools/internal/tool"
+	"github.com/tgo-lang/tools/gopls/internal/protocol"
+	"github.com/tgo-lang/tools/gopls/internal/settings"
+	"github.com/tgo-lang/tools/internal/tool"
 )
 
 // workspaceSymbol implements the workspace_symbol verb for gopls.

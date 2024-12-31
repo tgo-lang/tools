@@ -8,8 +8,8 @@ package ssautil
 // We discourage their use.
 
 import (
-	"golang.org/x/tools/go/loader"
-	"golang.org/x/tools/go/ssa"
+	"github.com/tgo-lang/tools/go/loader"
+	"github.com/tgo-lang/tools/go/ssa"
 )
 
 // CreateProgram returns a new program in SSA form, given a program

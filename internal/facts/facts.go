@@ -39,15 +39,16 @@ import (
 	"bytes"
 	"encoding/gob"
 	"fmt"
-	"go/types"
 	"io"
 	"log"
 	"reflect"
 	"sort"
 	"sync"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/types/objectpath"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/types/objectpath"
 )
 
 const debug = false

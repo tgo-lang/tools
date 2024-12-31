@@ -10,8 +10,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go/token"
-	"go/types"
 	"io"
 	"os"
 	"path/filepath"
@@ -20,13 +18,16 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"golang.org/x/tools/go/analysis/passes/printf"
-	"golang.org/x/tools/go/analysis/unitchecker"
-	"golang.org/x/tools/go/gcexportdata"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/testenv"
-	"golang.org/x/tools/internal/testfiles"
-	"golang.org/x/tools/txtar"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis/passes/printf"
+	"github.com/tgo-lang/tools/go/analysis/unitchecker"
+	"github.com/tgo-lang/tools/go/gcexportdata"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/testenv"
+	"github.com/tgo-lang/tools/internal/testfiles"
+	"github.com/tgo-lang/tools/txtar"
 )
 
 // TestExampleSeparateAnalysis demonstrates the principle of separate

@@ -4,7 +4,7 @@
 
 package analysis
 
-import "go/token"
+import "github.com/tgo-lang/lang/token"
 
 // A Diagnostic is a message associated with a source location or range.
 //

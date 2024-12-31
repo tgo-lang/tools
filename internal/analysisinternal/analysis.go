@@ -9,14 +9,15 @@ package analysisinternal
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/scanner"
-	"go/token"
-	"go/types"
 	"os"
 	pathpkg "path"
 
-	"golang.org/x/tools/go/analysis"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/scanner"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/analysis"
 )
 
 func TypeErrorEndPos(fset *token.FileSet, src []byte, start token.Pos) token.Pos {

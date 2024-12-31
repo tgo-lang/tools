@@ -5,8 +5,8 @@
 package versions
 
 import (
-	"go/ast"
-	"go/types"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/types"
 )
 
 // FileVersion returns a file's Go version.

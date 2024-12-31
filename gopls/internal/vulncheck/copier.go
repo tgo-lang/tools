@@ -17,8 +17,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"go/parser"
-	"go/token"
 	"log"
 	"os"
 	"os/exec"
@@ -26,7 +24,10 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/internal/edit"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/internal/edit"
 )
 
 func main() {

@@ -6,10 +6,11 @@ package typesinternal
 
 import (
 	"fmt"
-	"go/ast"
-	"go/token"
-	"go/types"
 	"strings"
+
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
 )
 
 // ZeroString returns the string representation of the zero value for any type t.

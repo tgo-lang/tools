@@ -9,21 +9,22 @@ package gcimporter_test
 import (
 	"bytes"
 	"fmt"
-	"go/ast"
-	"go/constant"
-	"go/parser"
-	"go/token"
-	"go/types"
 	"math/big"
 	"path/filepath"
 	"reflect"
 	"strings"
 	"testing"
 
-	"golang.org/x/tools/go/gcexportdata"
-	"golang.org/x/tools/go/packages"
-	"golang.org/x/tools/internal/gcimporter"
-	"golang.org/x/tools/internal/testenv"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/constant"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/go/gcexportdata"
+	"github.com/tgo-lang/tools/go/packages"
+	"github.com/tgo-lang/tools/internal/gcimporter"
+	"github.com/tgo-lang/tools/internal/testenv"
 )
 
 func iexport(fset *token.FileSet, version int, pkg *types.Package) ([]byte, error) {

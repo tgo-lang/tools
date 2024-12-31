@@ -7,7 +7,7 @@ package typeutil
 // This file defines utilities for user interfaces that display types.
 
 import (
-	"go/types"
+	"github.com/tgo-lang/lang/types"
 )
 
 // IntuitiveMethodSet returns the intuitive method set of a type T,

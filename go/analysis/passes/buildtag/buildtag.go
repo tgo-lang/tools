@@ -6,15 +6,16 @@
 package buildtag
 
 import (
-	"go/ast"
 	"go/build/constraint"
-	"go/parser"
-	"go/token"
 	"strings"
 	"unicode"
 
-	"golang.org/x/tools/go/analysis"
-	"golang.org/x/tools/go/analysis/passes/internal/analysisutil"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/analysis"
+	"github.com/tgo-lang/tools/go/analysis/passes/internal/analysisutil"
 )
 
 const Doc = "check //go:build and // +build directives"

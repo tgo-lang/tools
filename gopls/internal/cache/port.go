@@ -7,13 +7,14 @@ package cache
 import (
 	"bytes"
 	"go/build"
-	"go/parser"
-	"go/token"
 	"io"
 	"path/filepath"
 	"strings"
 
-	"golang.org/x/tools/gopls/internal/util/bug"
+	"github.com/tgo-lang/lang/parser"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/gopls/internal/util/bug"
 )
 
 type port struct{ GOOS, GOARCH string }

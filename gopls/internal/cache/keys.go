@@ -9,7 +9,7 @@ package cache
 import (
 	"io"
 
-	"golang.org/x/tools/internal/event/label"
+	"github.com/tgo-lang/tools/internal/event/label"
 )
 
 var (

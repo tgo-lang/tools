@@ -9,8 +9,8 @@
 package main
 
 import (
-	"golang.org/x/tools/go/analysis/passes/waitgroup"
-	"golang.org/x/tools/go/analysis/singlechecker"
+	"github.com/tgo-lang/tools/go/analysis/passes/waitgroup"
+	"github.com/tgo-lang/tools/go/analysis/singlechecker"
 )
 
 func main() { singlechecker.Main(waitgroup.Analyzer) }

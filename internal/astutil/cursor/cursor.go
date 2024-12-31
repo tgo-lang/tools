@@ -15,13 +15,14 @@
 package cursor
 
 import (
-	"go/ast"
-	"go/token"
 	"iter"
 	"reflect"
 	"slices"
 
-	"golang.org/x/tools/go/ast/inspector"
+	"github.com/tgo-lang/lang/ast"
+	"github.com/tgo-lang/lang/token"
+
+	"github.com/tgo-lang/tools/go/ast/inspector"
 )
 
 // A Cursor represents an [ast.Node]. It is immutable.

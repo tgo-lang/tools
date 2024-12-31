@@ -5,8 +5,9 @@
 package apidiff
 
 import (
-	"go/types"
 	"sort"
+
+	"github.com/tgo-lang/lang/types"
 )
 
 // Two types are correspond if they are identical except for defined types,

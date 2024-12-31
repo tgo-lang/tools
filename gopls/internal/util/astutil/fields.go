@@ -5,8 +5,9 @@
 package astutil
 
 import (
-	"go/ast"
 	"iter"
+
+	"github.com/tgo-lang/lang/ast"
 )
 
 // FlatFields 'flattens' an ast.FieldList, returning an iterator over each

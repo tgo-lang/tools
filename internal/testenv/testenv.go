@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/tgo-lang/tools/internal/gocommand"
+	"github.com/tgo-lang/tools/internal/goroot"
 	"golang.org/x/mod/modfile"
-	"golang.org/x/tools/internal/gocommand"
-	"golang.org/x/tools/internal/goroot"
 )
 
 // packageMainIsDevel reports whether the module containing package main

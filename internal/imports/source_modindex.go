@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/tools/internal/modindex"
+	"github.com/tgo-lang/tools/internal/modindex"
 )
 
 // This code is here rather than in the modindex package

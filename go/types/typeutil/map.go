@@ -9,11 +9,12 @@ package typeutil
 import (
 	"bytes"
 	"fmt"
-	"go/types"
 	"hash/maphash"
 	"unsafe"
 
-	"golang.org/x/tools/internal/typeparams"
+	"github.com/tgo-lang/lang/types"
+
+	"github.com/tgo-lang/tools/internal/typeparams"
 )
 
 // Map is a hash-table-based mapping from types (types.Type) to
