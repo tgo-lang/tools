@@ -12,6 +12,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"maps"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -238,6 +239,21 @@ type Config struct {
 	modFlag string
 }
 
+func tgoToGo(c []byte) []byte {
+	// TODO: think about this (https://github.com/golang/go/issues/70725)
+	f, _ := parser.ParseFile(token.NewFileSet(), "", c, parser.SkipObjectResolution|parser.ImportsOnly)
+	if len(f.Decls) != 0 {
+		//lastImportSpec := f.Decls[len(f.Decls)-1].(*ast.GenDecl) // TODO: can this be a BadDecl?
+		lastImportSpec := f.Decls[len(f.Decls)-1]
+		return c[:lastImportSpec.End()]
+	} else if f.Name != nil {
+		return c[:f.Name.End()]
+	} else {
+		// TODO: Misisng AllErrors, or invalid file (no package directive).
+		return c
+	}
+}
+
 // Load loads and returns the Go packages named by the given patterns.
 //
 // The cfg parameter specifies loading options; nil behaves the same as an empty [Config].
@@ -266,10 +282,178 @@ type Config struct {
 // proceeding with further analysis. The [PrintErrors] function is
 // provided for convenient display of all errors.
 func Load(cfg *Config, patterns ...string) ([]*Package, error) {
+	driverOverlay := maps.Clone(cfg.Overlay)
+	addedGoFiles := make(map[string]struct{})
+
+	if driverOverlay == nil {
+		driverOverlay = make(map[string][]byte)
+	}
+
+	tgoToGoExt := func(s string) string {
+		return s[:len(s)-len(".tgo")] + ".go"
+	}
+
+	// TODO: is this logic going to work properly with //go:build in tgo files.
+
+	// Rewrite ".tgo" overlay files to ".go".
+	for path, content := range driverOverlay {
+		if filepath.Ext(path) == ".tgo" {
+			asGoFile := tgoToGoExt(path)
+			addedGoFiles[asGoFile] = struct{}{}
+			driverOverlay[asGoFile] = tgoToGo(content)
+			delete(driverOverlay, path)
+		}
+	}
+
+	// Rewrite "file=/path/to/file.tgo" patterns to to ".go" files.
+	for i, pattern := range patterns {
+		query, filePath, ok := strings.Cut(pattern, "=")
+		if ok && query == "file" && filepath.Ext(filePath) == ".tgo" {
+			patterns[i] = tgoToGoExt(pattern)
+
+			// Read the file from the filesystem, if not already present in the overlay.
+			asGoFile := patterns[i][len("file="):]
+			if _, ok := driverOverlay[asGoFile]; !ok {
+				content, err := os.ReadFile(asGoFile)
+				if err != nil {
+					return nil, err
+				}
+				addedGoFiles[asGoFile] = struct{}{}
+				driverOverlay[asGoFile] = tgoToGo(content)
+			}
+		}
+	}
+
 	ld := newLoader(cfg)
-	response, external, err := defaultDriver(&ld.Config, patterns...)
+	ld.Config.Overlay = driverOverlay
+	response, external, err := defaultDriver(&ld.Config, prevRun{}, patterns...)
 	if err != nil {
 		return nil, err
+	}
+
+	for {
+		added := false
+		for _, pkg := range response.Packages {
+			if pkg.Dir == "" {
+				continue
+			}
+			dir, err := os.Open(pkg.Dir)
+			if err != nil {
+				return nil, err
+			}
+			files, err := dir.Readdirnames(-1)
+			if err != nil {
+				return nil, err
+			}
+			for _, tgoFile := range files {
+				if filepath.Ext(tgoFile) == ".tgo" {
+					tgoFile = filepath.Join(pkg.Dir, tgoFile)
+					asGoFile := tgoToGoExt(tgoFile)
+					if _, ok := driverOverlay[asGoFile]; ok {
+						continue
+					}
+
+					tgoFileContents, err := os.ReadFile(tgoFile)
+					if err != nil {
+						return nil, err
+					}
+
+					// TODO: if .go file has the same imports as .tgo, we don't need to rerun.
+					// (We need to preserve also the same line and col numbers).
+
+					// TODO: for *all* packages that have tgo, we need to clear ExportData?
+					// TODO: what about errors, because of invalid (incomplete) files.
+					// Can we detect such case and retry in a go list mode that
+					// does not do type checking (only imports)??
+
+					driverOverlay[asGoFile] = tgoToGo(tgoFileContents)
+					addedGoFiles[asGoFile] = struct{}{}
+
+					// TODO: in case of the same imports, do not re-run.
+					// how this affects the ExportFile clearing?
+					// We might not get an error (while loading), but the ExportFile
+					// might not contain all decarations that are in the .tgo file.
+					// (Tgo file has the same imports as Go file, but Tgo file has one more global func).
+					added = true
+				}
+			}
+		}
+
+		if !added {
+			break
+		}
+
+		// The prevRun is used by the go list driver, to avoid doing redundant work.
+		// Don't set it in case the response comes from an external driver, because external
+		// drivers can dynamically fallback to go list driver in the next run ([DriverResponse.NotHandled]),
+		// thus in that case it is better to compute these fields again (from go list).
+		var prev prevRun
+		if !external {
+			prev.Compiler = response.Compiler
+			prev.Arch = response.Arch
+			prev.Version = response.GoVersion
+		}
+
+		response, external, err = defaultDriver(&ld.Config, prev, patterns...)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	rewriteFiles := func(files []string) {
+		for i, v := range files {
+			if _, ok := addedGoFiles[v]; ok {
+				files[i] = v[:len(v)-len(".go")] + ".tgo"
+			}
+		}
+	}
+
+	rewritePos := func(pos *string) {
+		if fileName, after, ok := strings.Cut(*pos, ":"); ok {
+			if _, ok := addedGoFiles[fileName]; ok {
+				*pos = fileName[:len(fileName)-len(".go")] + ".tgo" + ":" + after
+			}
+		}
+	}
+
+	for _, pkg := range response.Packages {
+		// TODO: we can also in case of (usesExportData(cfg) || external) transpile the file instead.
+		// Or do that dynamically, we only need export data when NeedExportFile is set, otherwise we can
+		// do whatever we want (what about errors??).
+		// Or if someone needs export data, then we can produce in??
+		// But first figure out whether it is safe to pass transpiled file (and) fset handling of the export file.
+		//
+		// Also to avoid  work we can parse the file and do not include function bodies (name returns, end add return stmt).
+		// This would work, but the expoort data also contains other data:
+		// The export data files produced by the compiler contain additional details related to generics, inlining,
+		// and other optimizations that cannot be decoded by the Read function.
+
+		// TODO: use export from compiler and see what is donen with the fset.
+		if len(pkg.CompiledGoFiles) != 0 && (len(pkg.Errors) != 0 || pkg.ExportFile != "") && (external || usesExportData(cfg)) {
+			for f := range addedGoFiles {
+				if pkg.Dir == filepath.Dir(f) {
+					// We are not transpiling the tgo files, tgo to go conversion only
+					// includes imports, so ExportFile might be invalid and it might contain
+					// Errors (unused imports, undefined globals (from other files)).
+					// We will get correct errors, after refine.
+					pkg.ExportFile = ""
+					pkg.Errors = nil
+
+					// TODO: file load error (like permission, non-syntax related), we might
+					// miss an error on an unused global function that was failed to read?
+					// TODO: import cycle?
+					break
+				}
+			}
+		}
+		for i := range pkg.Errors {
+			rewritePos(&pkg.Errors[i].Pos)
+		}
+		for i := range pkg.depsErrors {
+			rewritePos(&pkg.depsErrors[i].Pos)
+		}
+		rewriteFiles(pkg.GoFiles)
+		rewriteFiles(pkg.CompiledGoFiles)
 	}
 
 	ld.sizes = types.SizesFor(response.Compiler, response.Arch)
@@ -291,6 +475,12 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 		}
 	}
 
+	// Use the original overlay for refining. tgo files not present
+	// in cfg.Overlay will be read from the filesystem. The driver response
+	// was rewritten above to containt ".tgo" files, instead of the fake ".go" ones,
+	// that we passed to the driver.
+	ld.Config.Overlay = cfg.Overlay
+
 	return ld.refine(response)
 }
 
@@ -299,7 +489,7 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 // no external driver, or the driver returns a response with NotHandled set,
 // defaultDriver will fall back to the go list driver.
 // The boolean result indicates that an external driver handled the request.
-func defaultDriver(cfg *Config, patterns ...string) (*DriverResponse, bool, error) {
+func defaultDriver(cfg *Config, prev prevRun, patterns ...string) (*DriverResponse, bool, error) {
 	const (
 		// windowsArgMax specifies the maximum command line length for
 		// the Windows' CreateProcess function.
@@ -341,7 +531,7 @@ func defaultDriver(cfg *Config, patterns ...string) (*DriverResponse, bool, erro
 
 	var runner gocommand.Runner // (shared across many 'go list' calls)
 	driver := func(cfg *Config, patterns []string) (*DriverResponse, error) {
-		return goListDriver(cfg, &runner, overlayFile, patterns)
+		return goListDriver(cfg, &runner, overlayFile, patterns, prev)
 	}
 	response, err := callDriverOnChunks(driver, cfg, chunks)
 	if err != nil {
@@ -1073,6 +1263,9 @@ func (ld *loader) loadPackage(lpkg *loaderPackage) {
 	if !lpkg.needtypes && !lpkg.needsrc {
 		return
 	}
+
+	// TODO: if there is a "tgo" file, we should also skip loadFromExportData?
+	// TODO: what if exportdata is "", i think this should also be skipped?
 
 	// TODO(adonovan): this condition looks wrong:
 	// I think it should be lpkg.needtypes && !lpg.needsrc,

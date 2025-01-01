@@ -136,7 +136,7 @@ func (modules) Finalize(exported *Exported) error {
 		if v, ok := versions[module]; ok {
 			module = v.module
 		}
-		if err := os.WriteFile(modfile, []byte("module "+module+"\n"), 0644); err != nil {
+		if err := os.WriteFile(modfile, []byte("module "+module+"\ngo 1.23.0\n"), 0644); err != nil {
 			return err
 		}
 		files["go.mod"] = modfile

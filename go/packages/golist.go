@@ -130,13 +130,19 @@ func (state *golistState) mustGetEnv() map[string]string {
 	return env
 }
 
+type prevRun struct {
+	Compiler string
+	Arch     string
+	Version  int
+}
+
 // goListDriver uses the go list command to interpret the patterns and produce
 // the build system package structure.
 // See driver for more details.
 //
 // overlay is the JSON file that encodes the cfg.Overlay
 // mapping, used by 'go list -overlay=...'
-func goListDriver(cfg *Config, runner *gocommand.Runner, overlay string, patterns []string) (_ *DriverResponse, err error) {
+func goListDriver(cfg *Config, runner *gocommand.Runner, overlay string, patterns []string, prevRun prevRun) (_ *DriverResponse, err error) {
 	// Make sure that any asynchronous go commands are killed when we return.
 	parentCtx := cfg.Context
 	if parentCtx == nil {
@@ -155,8 +161,18 @@ func goListDriver(cfg *Config, runner *gocommand.Runner, overlay string, pattern
 		runner:     runner,
 	}
 
+	// Use partial results result from the previous run, to avoid doing the work again in
+	// getSizesForArgs (executed below) and getGoVersion (called by createDriverResponse at
+	// the bottom of this method).
+	response.dr.Compiler = prevRun.Compiler
+	response.dr.Arch = prevRun.Arch
+	if prevRun.Version != 0 {
+		state.goVersion = prevRun.Version
+		state.goVersionOnce.Do(func() {})
+	}
+
 	// Fill in response.Sizes asynchronously if necessary.
-	if cfg.Mode&NeedTypesSizes != 0 || cfg.Mode&(NeedTypes|NeedTypesInfo) != 0 {
+	if (response.dr.Compiler == "" || response.dr.Arch == "") && (cfg.Mode&NeedTypesSizes != 0 || cfg.Mode&(NeedTypes|NeedTypesInfo) != 0) {
 		errCh := make(chan error)
 		go func() {
 			compiler, arch, err := getSizesForArgs(ctx, state.cfgInvocation(), runner)
