@@ -293,6 +293,10 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 		return s[:len(s)-len(".tgo")] + ".go"
 	}
 
+	// TODO: Load is not going to find packages, that do not have any
+	// ".go" files (it will work however if there are .tgo files) in the
+	// overlay.
+
 	// TODO: is this logic going to work properly with //go:build in tgo files.
 
 	// Rewrite ".tgo" overlay files to ".go".
