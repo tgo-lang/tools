@@ -239,21 +239,6 @@ type Config struct {
 	modFlag string
 }
 
-func tgoToGo(c []byte) []byte {
-	// TODO: think about this (https://github.com/golang/go/issues/70725)
-	f, _ := parser.ParseFile(token.NewFileSet(), "", c, parser.SkipObjectResolution|parser.ImportsOnly)
-	if len(f.Decls) != 0 {
-		//lastImportSpec := f.Decls[len(f.Decls)-1].(*ast.GenDecl) // TODO: can this be a BadDecl?
-		lastImportSpec := f.Decls[len(f.Decls)-1]
-		return c[:lastImportSpec.End()]
-	} else if f.Name != nil {
-		return c[:f.Name.End()]
-	} else {
-		// TODO: Misisng AllErrors, or invalid file (no package directive).
-		return c
-	}
-}
-
 // Load loads and returns the Go packages named by the given patterns.
 //
 // The cfg parameter specifies loading options; nil behaves the same as an empty [Config].
@@ -293,10 +278,6 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 		return s[:len(s)-len(".tgo")] + ".go"
 	}
 
-	// TODO: Load is not going to find packages, that do not have any
-	// ".go" files (it will work however if there are .tgo files) in the
-	// overlay.
-
 	// TODO: is this logic going to work properly with //go:build in tgo files.
 
 	// Rewrite ".tgo" overlay files to ".go".
@@ -330,77 +311,61 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 
 	ld := newLoader(cfg)
 	ld.Config.Overlay = driverOverlay
-	response, external, err := defaultDriver(&ld.Config, prevRun{}, patterns...)
+	externalDriver := findExternalDriver(&ld.Config)
+
+	// go list (without -m) is not going to find packages, that do not have any
+	// ".go" files (consider a directory containing only .tgo files), to workaround that,
+	// use go list to find the directories of the modules, and traverse recursively the
+	// corresponding directory, converting every ".tgo" file into a ".go" one (in the overlay).
+	//
+	// We do that only when "go list" mode is being used (no externalDriver), in case
+	// the externalDriver is being used, the logic after the first call to defaultDriver
+	// is stil going to rewrite .tgo files to .go files, but packages containing only
+	// .tgo files might fail.
+	if externalDriver == nil {
+		if err := fillTgoOverlayBasedOnModules(&ld.Config, driverOverlay, addedGoFiles); err != nil {
+			return nil, err
+		}
+	}
+
+	response, external, err := defaultDriver(&ld.Config, prevRun{}, externalDriver, patterns...)
 	if err != nil {
 		return nil, err
 	}
 
-	for {
-		added := false
-		for _, pkg := range response.Packages {
-			if pkg.Dir == "" {
-				continue
-			}
-			dir, err := os.Open(pkg.Dir)
+	// Verify that every package files are converted from ".tgo" to ".go", if not
+	// then convert them to ".go" and re-run untill they are in sync, this can happen
+	// in case we are using externalDriver, and we have not done that before the first
+	// call to defaultDriver.
+	// Note that this can also be a response from the "go list" driver, externalDrive
+	// might return [NotHandled] == true (meaning a fallback to go list).
+	if externalDriver != nil {
+		for {
+			added, err := fillTgoOverlayBasedOnPreviusDriverResponse(response, driverOverlay, addedGoFiles)
 			if err != nil {
 				return nil, err
 			}
-			files, err := dir.Readdirnames(-1)
+
+			if !added {
+				break
+			}
+
+			// TODO: remove this prevRun thing now
+			// The prevRun is used by the go list driver, to avoid doing redundant work.
+			// Don't set it in case the response comes from an external driver, because external
+			// drivers can dynamically fallback to go list driver in the next run ([DriverResponse.NotHandled]),
+			// thus in that case it is better to compute these fields again (from go list).
+			var prev prevRun
+			if !external {
+				prev.Compiler = response.Compiler
+				prev.Arch = response.Arch
+				prev.Version = response.GoVersion
+			}
+
+			response, external, err = defaultDriver(&ld.Config, prev, externalDriver, patterns...)
 			if err != nil {
 				return nil, err
 			}
-			for _, tgoFile := range files {
-				if filepath.Ext(tgoFile) == ".tgo" {
-					tgoFile = filepath.Join(pkg.Dir, tgoFile)
-					asGoFile := tgoToGoExt(tgoFile)
-					if _, ok := driverOverlay[asGoFile]; ok {
-						continue
-					}
-
-					tgoFileContents, err := os.ReadFile(tgoFile)
-					if err != nil {
-						return nil, err
-					}
-
-					// TODO: if .go file has the same imports as .tgo, we don't need to rerun.
-					// (We need to preserve also the same line and col numbers).
-
-					// TODO: for *all* packages that have tgo, we need to clear ExportData?
-					// TODO: what about errors, because of invalid (incomplete) files.
-					// Can we detect such case and retry in a go list mode that
-					// does not do type checking (only imports)??
-
-					driverOverlay[asGoFile] = tgoToGo(tgoFileContents)
-					addedGoFiles[asGoFile] = struct{}{}
-
-					// TODO: in case of the same imports, do not re-run.
-					// how this affects the ExportFile clearing?
-					// We might not get an error (while loading), but the ExportFile
-					// might not contain all decarations that are in the .tgo file.
-					// (Tgo file has the same imports as Go file, but Tgo file has one more global func).
-					added = true
-				}
-			}
-		}
-
-		if !added {
-			break
-		}
-
-		// The prevRun is used by the go list driver, to avoid doing redundant work.
-		// Don't set it in case the response comes from an external driver, because external
-		// drivers can dynamically fallback to go list driver in the next run ([DriverResponse.NotHandled]),
-		// thus in that case it is better to compute these fields again (from go list).
-		var prev prevRun
-		if !external {
-			prev.Compiler = response.Compiler
-			prev.Arch = response.Arch
-			prev.Version = response.GoVersion
-		}
-
-		response, external, err = defaultDriver(&ld.Config, prev, patterns...)
-		if err != nil {
-			return nil, err
 		}
 	}
 
@@ -493,7 +458,7 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 // no external driver, or the driver returns a response with NotHandled set,
 // defaultDriver will fall back to the go list driver.
 // The boolean result indicates that an external driver handled the request.
-func defaultDriver(cfg *Config, prev prevRun, patterns ...string) (*DriverResponse, bool, error) {
+func defaultDriver(cfg *Config, prev prevRun, externalDriver driver, patterns ...string) (*DriverResponse, bool, error) {
 	const (
 		// windowsArgMax specifies the maximum command line length for
 		// the Windows' CreateProcess function.
@@ -513,8 +478,8 @@ func defaultDriver(cfg *Config, prev prevRun, patterns ...string) (*DriverRespon
 		return nil, false, err
 	}
 
-	if driver := findExternalDriver(cfg); driver != nil {
-		response, err := callDriverOnChunks(driver, cfg, chunks)
+	if externalDriver != nil {
+		response, err := callDriverOnChunks(externalDriver, cfg, chunks)
 		if err != nil {
 			return nil, false, err
 		} else if !response.NotHandled {
@@ -534,10 +499,10 @@ func defaultDriver(cfg *Config, prev prevRun, patterns ...string) (*DriverRespon
 	defer cleanupOverlay()
 
 	var runner gocommand.Runner // (shared across many 'go list' calls)
-	driver := func(cfg *Config, patterns []string) (*DriverResponse, error) {
+	externalDriver = func(cfg *Config, patterns []string) (*DriverResponse, error) {
 		return goListDriver(cfg, &runner, overlayFile, patterns, prev)
 	}
-	response, err := callDriverOnChunks(driver, cfg, chunks)
+	response, err := callDriverOnChunks(externalDriver, cfg, chunks)
 	if err != nil {
 		return nil, false, err
 	}
