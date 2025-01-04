@@ -49,7 +49,7 @@ func rewriteOverlay(o tgoOverlay) {
 
 func addTgoFileToOverlay(o tgoOverlay, tgoFile string) error {
 	asGoFile := tgoToGoExt(tgoFile)
-	if _, ok := o.driverOverlay[asGoFile]; ok {
+	if _, ok := o.addedGoFiles[asGoFile]; ok {
 		return nil
 	}
 
@@ -176,12 +176,12 @@ func rewriteDriverResponse(cfg *Config, dr *DriverResponse, o tgoOverlay, extern
 	rewritePos := func(pos *string) {
 		if fileName, after, ok := strings.Cut(*pos, ":"); ok {
 			if _, ok := o.addedGoFiles[fileName]; ok {
-				if filepath.Ext(fileName) == ".tgo" {
-					*pos = goToTgoExt(fileName) + ":" + after
-				}
+				*pos = goToTgoExt(fileName) + ":" + after
 			}
 		}
 	}
+
+	// TODO: also same thing for "Target" field.
 
 	for _, pkg := range dr.Packages {
 		// TODO: we can also in case of (usesExportData(cfg) || external) transpile the file instead.
@@ -196,15 +196,21 @@ func rewriteDriverResponse(cfg *Config, dr *DriverResponse, o tgoOverlay, extern
 		// and other optimizations that cannot be decoded by the Read function.
 
 		// TODO: use export from compiler and see what is donen with the fset.
+
+		// TODO: i feel like we should transpile it AND clear the export data
+		// or do a simple transpile and clear ExportData (only globals), keep funcs
+		// clear?
 		if len(pkg.CompiledGoFiles) != 0 && (len(pkg.Errors) != 0 || pkg.ExportFile != "") && (external || usesExportData(cfg)) {
-			for f := range o.addedGoFiles {
-				if pkg.Dir == filepath.Dir(f) {
-					// We are not transpiling the tgo files, tgo to go conversion only
+			for _, v := range pkg.GoFiles {
+				if _, ok := o.addedGoFiles[v]; ok {
+					// We are not "transpiling" ".tgo" files, tgo to go conversion only
 					// includes imports, so ExportFile might be invalid and it might contain
 					// Errors (unused imports, undefined globals (from other files)).
 					// We will get correct errors, after refine.
+					if pkg.ExportFile == "" {
+						pkg.Errors = nil
+					}
 					pkg.ExportFile = ""
-					pkg.Errors = nil
 
 					// TODO: file load error (like permission, non-syntax related), we might
 					// miss an error on an unused global function that was failed to read?
@@ -213,6 +219,8 @@ func rewriteDriverResponse(cfg *Config, dr *DriverResponse, o tgoOverlay, extern
 				}
 			}
 		}
+
+		// TODO: in case of an overlay they are wrong?
 		for i := range pkg.Errors {
 			rewritePos(&pkg.Errors[i].Pos)
 		}

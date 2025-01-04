@@ -277,11 +277,18 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 	}
 
 	// Rewrite ".tgo" overlay files into ".go" files.
+	// In case both ".tgo" and ".go" exist, it will be still rewritten,
+	// since ".tgo" have a higher precedecne over ".go" files.
+	// Into the refine process, we pass the original (not rewritten) overlay,
+	// so the ".go" file is going to be present there, but that does not matter,
+	// because the ".go" file is not going to be included in the DriverResponse,
+	// after [rewriteDriverResponse], so it is not goint to be used.
 	rewriteOverlay(overlay)
 
 	// Rewrite "file=/path/to/file.tgo" patterns to ".go" files,
 	// and load them from the filesystem into the overlay,
 	// if not yet present in the overlay.
+	// TODO: there is no need to prefix it with "file=", right? We currently assume so.
 	if err := rewriteFilePatterns(patterns, overlay); err != nil {
 		return nil, err
 	}
