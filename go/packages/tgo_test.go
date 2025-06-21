@@ -2,6 +2,7 @@ package packages_test
 
 import (
 	"log"
+	"path/filepath"
 	"testing"
 
 	"github.com/tgo-lang/tools/go/packages"
@@ -138,10 +139,31 @@ func TestGoFileInOverlay(t *testing.T) {
 }
 
 func loadExpectNoErrors(t *testing.T, pkgs []*packages.Package) {
-	t.Helper()
 	packages.Visit(pkgs, nil, func(pkg *packages.Package) {
 		for _, err := range pkg.Errors {
 			t.Errorf("%v: unexpected error: %v", pkg.Name, err)
 		}
 	})
+}
+
+func TestTgoFilePattern(t *testing.T) {
+	log.SetFlags(log.Lshortfile)
+	exported := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
+		{
+			Name: "fake",
+			Files: map[string]any{
+				"file.tgo": "package fake; type A int",
+			},
+		},
+	})
+	t.Cleanup(exported.Cleanup)
+
+	exported.Config.Mode = packages.LoadSyntax
+	path := filepath.Join(exported.Config.Dir, "file.tgo")
+	pkgs, err := packages.Load(exported.Config, path)
+	if err != nil {
+		t.Error(err)
+	}
+	loadExpectNoErrors(t, pkgs)
+	t.Log(pkgs)
 }

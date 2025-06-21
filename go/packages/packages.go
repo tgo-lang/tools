@@ -146,6 +146,14 @@ const (
 	NeedExportsFile = NeedExportFile
 )
 
+type TgoLoadMode uint8
+
+const (
+	TgoLoadModeGo TgoLoadMode = iota
+	TgoLoadModeTranspileGo
+	TgoLoadModeTgo
+)
+
 // A Config specifies details about how packages should be loaded.
 // The zero value is a valid configuration.
 //
@@ -153,6 +161,8 @@ const (
 type Config struct {
 	// Mode controls the level of information returned for each package.
 	Mode LoadMode
+
+	TgoMode TgoLoadMode
 
 	// Context specifies the context for the load operation.
 	// Cancelling the context may cause [Load] to abort and
@@ -235,7 +245,7 @@ type Config struct {
 	// modFile will be used for -modfile in go command invocations.
 	modFile string
 
-	// modFlag will be used for -modfile in go command invocations.
+	// modFlag will be used for -mod in go command invocations.
 	modFlag string
 }
 
@@ -267,9 +277,16 @@ type Config struct {
 // proceeding with further analysis. The [PrintErrors] function is
 // provided for convenient display of all errors.
 func Load(cfg *Config, patterns ...string) ([]*Package, error) {
+	ld := newLoader(cfg)
+	externalDriver := findExternalDriver(&ld.Config)
+
 	overlay := tgoOverlay{
-		driverOverlay: maps.Clone(cfg.Overlay),
-		addedGoFiles:  make(map[string]struct{}),
+		driverOverlay:          maps.Clone(ld.Overlay),
+		fakeGoFiles:            make(map[string]struct{}),
+		fakeGoFilesWithImportC: make(map[string]struct{}),
+		erroneousFakeGoFiles:   make(map[string]struct{}),
+
+		needsFullyTranspiledSource: externalDriver != nil || usesExportData(&ld.Config) || ld.Mode&NeedEmbedFiles != 0,
 	}
 
 	if overlay.driverOverlay == nil {
@@ -282,19 +299,22 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 	// Into the refine process, we pass the original (not rewritten) overlay,
 	// so the ".go" file is going to be present there, but that does not matter,
 	// because the ".go" file is not going to be included in the DriverResponse,
-	// after [rewriteDriverResponse], so it is not goint to be used.
+	// after [rewriteDriverResponse], so it is not going to be used.
 	rewriteOverlay(overlay)
 
 	// Rewrite "file=/path/to/file.tgo" patterns to ".go" files,
 	// and load them from the filesystem into the overlay,
 	// if not yet present in the overlay.
-	// TODO: there is no need to prefix it with "file=", right? We currently assume so.
 	if err := rewriteFilePatterns(patterns, overlay); err != nil {
 		return nil, err
 	}
 
-	ld := newLoader(cfg)
-	externalDriver := findExternalDriver(&ld.Config)
+	// Rewrite "/path/to/file.tgo" patterns to ".go" files,
+	// and load them from the filesystem into the overlay,
+	// if not yet present in the overlay.
+	if err := rewriteCommandLineArgumentPatterns(patterns, overlay); err != nil {
+		return nil, err
+	}
 
 	// go list is not going to find packages, that do not have any ".go" files inside
 	// (consider a directory containing only .tgo files), to workaround that,
@@ -304,15 +324,17 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 	//
 	// We do that only when "go list" mode is being used (no externalDriver), in case
 	// the externalDriver is being used, the logic after the first call to defaultDriver
-	// is stil going to rewrite .tgo files to .go files, but packages containing only
+	// is still going to rewrite .tgo files to .go files, but packages containing only
 	// .tgo files might fail.
 	if externalDriver == nil {
-		if err := fillTgoOverlayBasedOnModules(&ld.Config, overlay); err != nil {
+		// TODO: what if the pattern references a module in a different workspace? ../../sth-different.
+		if err := fillTgoOverlayBasedOnModules(&ld.Config, patterns, overlay); err != nil {
 			return nil, err
 		}
 	}
 
-	ld.Config.Overlay = overlay.driverOverlay
+	origOverlay := ld.Overlay
+	ld.Overlay = overlay.driverOverlay
 	response, external, err := defaultDriver(&ld.Config, externalDriver, patterns...)
 	if err != nil {
 		return nil, err
@@ -344,7 +366,7 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 		}
 	}
 
-	rewriteDriverResponse(&ld.Config, response, overlay, external)
+	rewriteDriverResponse(response, overlay)
 
 	ld.sizes = types.SizesFor(response.Compiler, response.Arch)
 	if ld.sizes == nil && ld.Config.Mode&(NeedTypes|NeedTypesSizes|NeedTypesInfo) != 0 {
@@ -369,7 +391,7 @@ func Load(cfg *Config, patterns ...string) ([]*Package, error) {
 	// in cfg.Overlay will be read from the filesystem. The driver response
 	// was rewritten above to containt ".tgo" files, instead of the fake ".go" ones,
 	// that we passed to the driver.
-	ld.Config.Overlay = cfg.Overlay
+	ld.Overlay = origOverlay
 
 	return ld.refine(response)
 }
